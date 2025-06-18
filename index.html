@@ -37,6 +37,11 @@
             <div class="container">
                 <h1>Yincheng Hou</h1>
                 <p class="tagline">Robotics MSc Student & Electronic Engineer</p>
+                <div class="scroll-indicator">
+                    <a href="#about" aria-label="Scroll down to About section">
+                        <img src="assets/icons/scroll-down.svg" alt="Scroll down" class="scroll-down-arrow">
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -65,15 +70,18 @@
                     <div class="timeline-item">
                         <div class="timeline-date">September 2024 – September 2025</div>
                         <div class="timeline-content">
+                            <img src="assets/images/kcl.jpg" alt="King's College London Logo" class="school-logo">
                             <h3>King's College London</h3>
                             <h4>MSc Robotics, London, United Kingdom</h4>
                             <p><strong>Core Modules:</strong> Intelligence & Autonomy; Sensing & Perception; Robot Kinematics & Motion Planning</p>
+                            <p><strong>Key Awards:</strong> President's Global Leadership Award</p>
                         </div>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="timeline-date">June 2024 – July 2024</div>
                         <div class="timeline-content">
+                            <img src="assets/images/ul.jpg" alt="University of Lisbon Logo" class="school-logo">
                             <h3>University of Lisbon</h3>
                             <h4>Exchange Program, Lisbon, Portugal</h4>
                         </div>
@@ -82,6 +90,7 @@
                     <div class="timeline-item">
                         <div class="timeline-date">September 2020 – June 2024</div>
                         <div class="timeline-content">
+                            <img src="assets/images/shu.jpg" alt="Shanghai University Logo" class="school-logo">
                             <h3>Shanghai University</h3>
                             <h4>BE Electronic Information Engineering, Shanghai, China</h4>
                             <p><strong>Core Modules:</strong> Data Structure & Algorithm; Analog & Digital Circuits; Signals & Systems; Telecom Theory</p>
@@ -92,6 +101,7 @@
                     <div class="timeline-item">
                         <div class="timeline-date">July 2019 – August 2019</div>
                         <div class="timeline-content">
+                            <img src="assets/images/pegs.jpg" alt="Penleigh and Essendon Grammar School Logo" class="school-logo">
                             <h3>Penleigh and Essendon Grammar School</h3>
                             <h4>Exchange Program, Melbourne, Australia</h4>
                         </div>
@@ -100,6 +110,7 @@
                     <div class="timeline-item">
                         <div class="timeline-date">September 2017 – June 2020</div>
                         <div class="timeline-content">
+                            <img src="assets/images/sdhs.jpg" alt="Shanghai Datong High School Logo" class="school-logo">
                             <h3>Shanghai Datong High School</h3>
                             <h4>Senior High School, Shanghai, China</h4>
                         </div>
@@ -112,33 +123,56 @@
             <div class="container">
                 <h2>Professional Experience</h2>
                 
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <h3>Cloud Business Engineer Intern</h3>
-                        <p class="company">China Telecom Europe, London, United Kingdom</p>
-                        <p class="date">May 2025 – June 2025</p>
+                <div class="experience-grid">
+                    <div class="experience-card">
+                        <div class="experience-date">May 2025 – June 2025</div>
+                        <div class="experience-header">
+                            <img src="assets/images/china-telecom.jpg" alt="China Telecom Europe Logo" class="company-logo">
+                            <div class="experience-header-content">
+                                <h3>Cloud Business Engineer Intern</h3>
+                                <h4>China Telecom Europe, London, United Kingdom</h4>
+                            </div>
+                        </div>
+                        <div class="experience-content">
+                            <ul>
+                                <li>Evaluated client capacity requirements and recommended optimal instance types and storage configurations, to ensure business isolation and high availability. Directly driving the client to sign a service agreement.</li>
+                                <li>Deployed on-prem open-sourced LLMs (Ollama, Deepseck) on an ECS instance. Configured Redis caching and SQLite databases, and integrated Open WebUI front-end APIs to prototype chatbot cloud AI products.</li>
+                                <li>Architeched an industry-specific knowledge base, performed data cleaning and chunking engineering, and orchestrated Dify and Alibaba Cloud Bailian workflows with the Mobi low-code platform to launch a RAG chatbot in a test environment. Delivered a report demonstrating segmented performance gains over general-purpose models.</li>
+                            </ul>
+                            <div class="skill-tags">
+                                <span class="skill-tag">On-premise Deployment</span>
+                                <span class="skill-tag">RAG</span>
+                                <span class="skill-tag">Cloud Architecture</span>
+                                <span class="skill-tag">Redis Caching</span>
+                                <span class="skill-tag">SQLite Databases</span>
+                                <span class="skill-tag">Workflow Configurations</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="experience-content">
-                        <ul>
-                            <li>Evaluated client capacity requirements and recommended optimal instance types and storage configurations to ensure business isolation and high availability. Directly drove the client to sign a service agreement.</li>
-                            <li>Deployed on-prem open-sourced LLMs (Ollama, Deepseek) on an ECS instance; configured Redis caching and SQLite databases; integrated Open WebUI front-end APIs to prototype chatbot cloud AI products.</li>
-                            <li>Architected an industry-specific knowledge base; performed data cleaning and chunking; orchestrated Dify and Alibaba Cloud Bailian workflows with the Mobi low-code platform to launch a RAG chatbot in a test environment. Delivered a report demonstrating segmented performance gains over general-purpose models.</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <h3>Data Analytics Intern</h3>
-                        <p class="company">Shanghai Himalaya Technology Co., Ltd., Shanghai, China</p>
-                        <p class="date">September 2023 – December 2023</p>
-                    </div>
-                    <div class="experience-content">
-                        <ul>
-                            <li>Implemented Beautiful Soup to parse front-end HTML and HTTP headers, simulating browser header information to gain authorized access to the site. Utilised Excel pivot charts for data processing, including line and pie charts.</li>
-                            <li>Developed a competitor cooperation analysis dashboard using MySQL queries in XQL and the Unicorn platform. Regularly collaborated with the business team to provide data support for decision-making.</li>
-                            <li>Utilised Panda scheduling to build Hive tables for automation. Created visualised dashboards using QuickBI and Tableau to monitor the company's full-volume data across key indicators; provided operational strategy suggestions.</li>
-                        </ul>
+                    
+                    <div class="experience-card">
+                        <div class="experience-date">September 2023 – December 2023</div>
+                        <div class="experience-header">
+                            <img src="assets/images/himalaya-tech.jpg" alt="Shanghai Himalaya Technology Logo" class="company-logo">
+                            <div class="experience-header-content">
+                                <h3>Data Analytics Intern</h3>
+                                <h4>Shanghai Himalaya Technology Co., Ltd., Shanghai, China</h4>
+                            </div>
+                        </div>
+                        <div class="experience-content">
+                            <ul>
+                                <li>Implemented Beautiful Soup to parse front-end HTML and HTTP headers, simulating browser header information to gain authorized access to the site. Utilised Excel pivot charts for data processing, including line and pie charts.</li>
+                                <li>Developed a competitor cooperation analysis dashboard using MySQL queries in XQL and the Unicorn platform. Regularly collaborated with the business team to provide data support for decision-making.</li>
+                                <li>Utilised Panda scheduling to build Hive tables for automation. Created visualised dashboards using QuickBI and Tableau to monitor the company's full-volume data across key indicators; provided operational strategy suggestions.</li>
+                            </ul>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Web Scraping</span>
+                                <span class="skill-tag">SQL</span>
+                                <span class="skill-tag">Data Visualization</span>
+                                <span class="skill-tag">Dashboard Development</span>
+                                <span class="skill-tag">Workflow Automation</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -151,10 +185,10 @@
                 <div class="projects-grid">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="../assets/images/project-placeholder.svg" alt="CNN Intelligent Vehicle Driving Model" width="100%" height="auto">
+                            <img src="assets/images/IEEE-Logo.jpg" alt="Convolutional Neural Network Model for Autonomous Driving" width="100%" height="auto">
                         </div>
                         <div class="project-content">
-                            <h3>An End-to-End CNN Intelligent Vehicle Driving Model</h3>
+                            <h3>An End-to-End Convolutional Neural Network Model for Autonomous Driving</h3>
                             <p class="project-meta">First Author of the Paper (IPEC 2023)</p>
                             <p class="project-date">December 2022 – April 2023</p>
                             <ul>
@@ -162,6 +196,13 @@
                                 <li>Simulated car behavior in Unity and constructed a classification model by extracting features through CNN using TensorFlow and Keras neural network models. Experienced in data visualization with Matplotlib and Seaborn.</li>
                                 <li>Simplified model with selected regularization methods and early stopping to solve overfitting. Tuned the model to improve key metrics by 9% over the existing model on unseen test sets.</li>
                             </ul>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Machine Learning</span>
+                                <span class="skill-tag">CNN</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">TensorFlow</span>
+                                <span class="skill-tag">Data Processing</span>
+                            </div>
                         </div>
                     </div>
                     <!-- More project cards can be added here -->
@@ -176,7 +217,7 @@
                 <div class="contact-content">
                     <div class="contact-info">
                         <div class="contact-item">
-                            <img src="../assets/icons/email.svg" alt="Email" width="24" height="24">
+                            <img src="assets/icons/email.svg" alt="Email" width="24" height="24">
                             <span class="contact-label">Email:</span>
                             <a href="mailto:houyc1217@gmail.com">houyc1217@gmail.com</a>
                         </div>
@@ -184,10 +225,10 @@
                     
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/yincheng-hou" target="_blank" rel="noopener noreferrer">
-                            <img src="../assets/icons/linkedin.svg" alt="LinkedIn" width="32" height="32">
+                            <img src="assets/icons/linkedin.svg" alt="LinkedIn" width="32" height="32">
                         </a>
                         <a href="https://github.com/houyc1217" target="_blank" rel="noopener noreferrer">
-                            <img src="../assets/icons/github.svg" alt="GitHub" width="32" height="32">
+                            <img src="assets/icons/github.svg" alt="GitHub" width="32" height="32">
                         </a>
                     </div>
                 </div>
@@ -201,6 +242,6 @@
         </div>
     </footer>
 
-    <script src="../js/main.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
