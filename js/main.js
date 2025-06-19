@@ -11,30 +11,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Project card link handler for CNN paper
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        const projectTitle = card.querySelector('h3');
-        if (projectTitle && projectTitle.textContent === 'An End-to-End Convolutional Neural Network Model for Autonomous Driving') {
-            card.classList.add('clickable');
-            card.style.cursor = 'pointer';
-            card.setAttribute('role', 'button');
-            card.setAttribute('aria-label', 'View publication on IEEE Xplore: An End-to-End Convolutional Neural Network Model for Autonomous Driving');
-            card.setAttribute('tabindex', '0'); // Make it keyboard focusable
-            
-            // Handle both click and keyboard enter/space
-            card.addEventListener('click', function() {
-                window.open('https://ieeexplore.ieee.org/document/10412716', '_blank');
-            });
-            
-            card.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    window.open('https://ieeexplore.ieee.org/document/10412716', '_blank');
-                }
-            });
-        }
-    });
+    // 移除项目卡片的点击功能，因为我们已经在HTML中添加了专门的按钮
+    // 原代码：
+    // const projectCards = document.querySelectorAll('.project-card');
+    // projectCards.forEach(card => {
+    //     const projectTitle = card.querySelector('h3');
+    //     if (projectTitle && projectTitle.textContent === 'An End-to-End Convolutional Neural Network Model for Autonomous Driving') {
+    //         card.classList.add('clickable');
+    //         card.style.cursor = 'pointer';
+    //         card.setAttribute('role', 'button');
+    //         card.setAttribute('aria-label', 'View publication on IEEE Xplore: An End-to-End Convolutional Neural Network Model for Autonomous Driving');
+    //         card.setAttribute('tabindex', '0'); // Make it keyboard focusable
+    //         
+    //         // Handle both click and keyboard enter/space
+    //         card.addEventListener('click', function() {
+    //             window.open('https://ieeexplore.ieee.org/document/10412716', '_blank');
+    //         });
+    //         
+    //         card.addEventListener('keydown', function(e) {
+    //             if (e.key === 'Enter' || e.key === ' ') {
+    //                 e.preventDefault();
+    //                 window.open('https://ieeexplore.ieee.org/document/10412716', '_blank');
+    //             }
+    //         });
+    //     }
+    // });
     
     // Smooth scrolling for navigation links and scroll indicator
     const navLinks = document.querySelectorAll('nav a, .scroll-indicator a');
