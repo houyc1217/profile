@@ -809,6 +809,32 @@ textarea {
     transform: translateY(0);
 }
 
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+    font-size: 14px;
+    margin-top: 15px;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+    color: white;
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
 /* Footer */
 footer {
     background-color: var(--text-color);
