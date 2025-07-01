@@ -196,6 +196,11 @@ nav a:hover::after {
 #hero h1 {
     margin-bottom: 20px;
     animation: fadeIn 1s ease-out;
+    background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
 }
 
 #hero .tagline {

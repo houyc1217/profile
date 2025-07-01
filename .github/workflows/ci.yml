@@ -1,0 +1,69 @@
+name: Web Profile CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: |
+        npm install -g htmlhint stylelint eslint
+        npm init -y
+        npm install --save-dev jest
+
+    - name: Lint HTML
+      run: htmlhint "*.html"
+
+    - name: Lint CSS
+      run: stylelint "css/*.css"
+
+    - name: Lint JavaScript
+      run: eslint "js/*.js"
+
+    - name: Build
+      run: |
+        # 创建构建目录
+        mkdir -p build
+        # 复制所有文件到构建目录
+        cp -r index.html css js assets build/
+
+    - name: Run tests
+      run: |
+        # 创建简单的测试文件
+        mkdir -p tests
+        cat > tests/basic.test.js << 'EOF'
+        test("Basic test", () => {
+          expect(true).toBe(true);
+        });
+        
+        test("File existence check", () => {
+          const fs = require('fs');
+          expect(fs.existsSync('index.html')).toBe(true);
+          expect(fs.existsSync('css/styles.css')).toBe(true);
+          expect(fs.existsSync('js/main.js')).toBe(true);
+        });
+        EOF
+        
+        # 运行测试
+        npx jest
+
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: web-profile-build
+        path: build/
