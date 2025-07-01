@@ -106,6 +106,7 @@ header .container {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
+    position: relative; /* Ensure proper positioning context */
 }
 
 .logo {
@@ -155,30 +156,38 @@ nav a:hover::after {
 .mobile-nav-toggle {
     display: none;
     flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    width: 30px; /* Increased width */
+    height: 20px; /* Increased height */
     cursor: pointer;
     z-index: 1001;
     background: transparent;
     border: none;
-    padding: 10px;
-    margin: -10px; /* 负边距增加点击区域 */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Reset margin */
     outline: none;
     -webkit-tap-highlight-color: transparent;
 }
 
 .mobile-nav-toggle span {
     display: block;
-    height: 3px;
-    width: 100%;
-    background-color: var(--text-color);
+    height: 4px; /* Increase height for better visibility */
+    width: 80%; /* Reduce width to ensure it fits within the button */
+    background-color: #000000; /* Use solid black color for better visibility */
     border-radius: 3px;
     transition: var(--transition);
+    opacity: 1; /* Ensure the spans are visible */
+    margin: 2px 0; /* Add even spacing between lines */
+}
+
+.mobile-nav-toggle span:last-child {
+    margin-bottom: 0; /* Remove margin from last span */
 }
 
 .mobile-nav-toggle.active span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
+    background-color: var(--primary-color); /* Change color when active */
 }
 
 .mobile-nav-toggle.active span:nth-child(2) {
@@ -186,7 +195,8 @@ nav a:hover::after {
 }
 
 .mobile-nav-toggle.active span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
+    background-color: var(--primary-color); /* Change color when active */
 }
 
 /* Hero Section */
@@ -939,12 +949,18 @@ footer {
     
     /* Mobile navigation menu style optimization */
     .mobile-nav-toggle {
-        display: flex;
+        display: flex !important; /* Force display of hamburger menu button */
         position: relative;
         z-index: 1002; /* Ensure hamburger menu button is on top layer */
-        padding: 15px; /* Increase clickable area */
-        margin: -15px; /* Negative margin to maintain layout */
+        padding: 0; /* Remove padding to fix positioning */
+        margin: 0; /* Reset margin */
         touch-action: manipulation; /* Optimize touch behavior */
+        width: 35px; /* Increase button width */
+        height: 25px; /* Increase button height */
+        background-color: rgba(255, 255, 255, 0.9); /* Add background to make button more visible */
+        border-radius: 5px; /* Add rounded corners */
+        justify-content: center; /* Center the spans vertically */
+        align-items: center; /* Center the spans horizontally */
     }
     
     nav {

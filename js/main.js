@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded');
     // Mobile navigation toggle
     const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
     const nav = document.querySelector('nav');
+    
+    console.log('Mobile nav toggle element:', mobileNavToggle);
+    console.log('Nav element:', nav);
     
     if (mobileNavToggle) {
         // Use event delegation to ensure click events are properly captured
@@ -14,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.toggle('nav-open');
             
             console.log('Mobile nav toggle clicked'); // Add debug log
+            console.log('Toggle active state:', this.classList.contains('active'));
+            console.log('Nav active state:', nav.classList.contains('active'));
         }, true); // Use capture phase
         
         // Add touch event support
@@ -26,7 +32,24 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.toggle('nav-open');
             
             console.log('Mobile nav toggle touched'); // Add debug log
+            console.log('Toggle active state (touch):', this.classList.contains('active'));
+            console.log('Nav active state (touch):', nav.classList.contains('active'));
         }, true);
+        
+        // Add event listeners to each span inside the toggle button
+        const spans = mobileNavToggle.querySelectorAll('span');
+        spans.forEach(span => {
+            span.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Trigger the parent button's click event
+                const clickEvent = new Event('click', { bubbles: true });
+                mobileNavToggle.dispatchEvent(clickEvent);
+                
+                console.log('Span inside toggle clicked');
+            }, true);
+        });
     }
     
     // Smooth scrolling for navigation links and scroll indicator
