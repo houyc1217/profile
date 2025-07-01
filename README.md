@@ -11,6 +11,8 @@ A modern, responsive personal portfolio website showcasing my skills, projects, 
 - [Getting Started](#getting-started)
 - [Features](#features)
 - [Usage](#usage)
+- [Development](#development)
+- [CI/CD](#cicd)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -46,6 +48,38 @@ A modern, responsive personal portfolio website showcasing my skills, projects, 
 ## ⚙️ Usage
 
 Simply open the `index.html` file in a web browser to view the portfolio website. You can also deploy it to any web hosting service for public access.
+
+## 💻 Development
+
+This project uses npm for dependency management and script running.
+
+```bash
+# Install dependencies
+npm install
+
+# Run linting
+npm run lint
+
+# Run tests
+npm test
+
+# Build the project
+npm run build
+```
+
+## 🔄 CI/CD
+
+This project uses GitHub Actions for continuous integration and deployment. The workflow includes:
+
+- Automated code checkout
+- Node.js environment setup
+- Dependency installation
+- Code linting (HTML, CSS, JavaScript)
+- Project building
+- Automated testing
+- Artifact archiving
+
+The CI/CD pipeline runs automatically on pushes and pull requests to the main branch.
 
 ## 🤝 Contributing
 
