@@ -65,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Header scroll effect
     const header = document.querySelector('header');
-    let lastScrollTop = 0;
     
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -75,8 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             header.style.boxShadow = '0 1px 0 rgba(0, 0, 0, 0.05)';
         }
-        
-        lastScrollTop = scrollTop;
     });
     
     // Form validation
@@ -163,7 +160,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
             
             if (pageYOffset >= (sectionTop - 200)) {
                 current = section.getAttribute('id');

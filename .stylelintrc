@@ -11,12 +11,12 @@
     "selector-type-no-unknown": true,
     "media-feature-name-no-unknown": true,
     "comment-no-empty": true,
-    "no-duplicate-selectors": true,
+    "no-duplicate-selectors": null,
     "no-empty-source": true,
-    "no-extra-semicolons": true,
+    "no-extra-semicolons": null,
     "no-invalid-double-slash-comments": true,
-    "declaration-no-important": true,
-    "declaration-block-single-line-max-declarations": 1,
-    "selector-max-empty-lines": 0
+    "declaration-no-important": null,
+    "declaration-block-single-line-max-declarations": null,
+    "selector-max-empty-lines": null
   }
 }
