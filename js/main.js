@@ -4,11 +4,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const nav = document.querySelector('nav');
     
     if (mobileNavToggle) {
-        mobileNavToggle.addEventListener('click', function() {
+        // Use event delegation to ensure click events are properly captured
+        mobileNavToggle.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default behavior
+            e.stopPropagation(); // Prevent event bubbling
+            
             this.classList.toggle('active');
             nav.classList.toggle('active');
             document.body.classList.toggle('nav-open');
-        });
+            
+            console.log('Mobile nav toggle clicked'); // Add debug log
+        }, true); // Use capture phase
+        
+        // Add touch event support
+        mobileNavToggle.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            this.classList.toggle('active');
+            nav.classList.toggle('active');
+            document.body.classList.toggle('nav-open');
+            
+            console.log('Mobile nav toggle touched'); // Add debug log
+        }, true);
     }
     
     // Smooth scrolling for navigation links and scroll indicator
