@@ -168,109 +168,94 @@ a:hover {
     color: var(--primary-dark);
 }
 
-/* Header & Navigation */
-header {
+/* Left Sidebar Navigation */
+.sidebar-nav {
     position: fixed;
-    top: 0;
     left: 0;
-    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 80px;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-lg) 0;
     transition: all var(--transition-base);
 }
 
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-md) var(--spacing-lg);
-}
-
-.logo {
-    font-size: 1.25rem;
-    font-weight: 700;
+.nav-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
     background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    letter-spacing: -0.5px;
-}
-
-nav {
+    color: var(--text-light);
     display: flex;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: var(--spacing-xl);
     align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-2xl);
+    box-shadow: var(--shadow-md);
 }
 
-nav a {
-    font-size: 0.9375rem;
+.sidebar-nav .nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: var(--spacing-sm);
+    font-size: 0.75rem;
     font-weight: 500;
-    color: var(--text-primary);
-    padding: var(--spacing-xs) 0;
+    color: var(--text-secondary);
+    text-align: center;
     position: relative;
-    transition: color var(--transition-base);
+    transition: all var(--transition-base);
+    border-radius: var(--radius-md);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
 }
 
-nav a::after {
+.sidebar-nav .nav-link::before {
     content: '';
     position: absolute;
-    bottom: 0;
     left: 0;
-    width: 0;
-    height: 2px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
     background: var(--gradient-primary);
-    transition: width var(--transition-base);
-    border-radius: var(--radius-full);
-}
-
-nav a:hover {
-    color: var(--primary);
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
-.mobile-nav-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 28px;
-    height: 20px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 1001;
-}
-
-.mobile-nav-toggle span {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: var(--text-primary);
-    border-radius: var(--radius-full);
-    transition: all var(--transition-base);
-}
-
-.mobile-nav-toggle.active span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-}
-
-.mobile-nav-toggle.active span:nth-child(2) {
+    border-radius: 0 var(--radius-full) var(--radius-full) 0;
     opacity: 0;
+    transition: opacity var(--transition-base);
 }
 
-.mobile-nav-toggle.active span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+.sidebar-nav .nav-link:hover,
+.sidebar-nav .nav-link.active {
+    color: var(--primary);
+    background: rgba(0, 102, 255, 0.05);
+}
+
+.sidebar-nav .nav-link.active::before {
+    opacity: 1;
+}
+
+/* Main Content - Add left padding for sidebar */
+main {
+    margin-left: 80px;
+    transition: margin-left var(--transition-base);
 }
 
 /* Hero Section */
@@ -282,7 +267,7 @@ nav a:hover::after {
     text-align: center;
     background: var(--gradient-bg);
     position: relative;
-    padding-top: 80px;
+    padding-top: 0;
     overflow: hidden;
 }
 
@@ -572,11 +557,27 @@ section:nth-child(even) {
 }
 
 /* Experience Section */
+#experience .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#experience h2 {
+    align-self: center;
+    width: 100%;
+}
+
 .experience-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     gap: var(--spacing-xl);
     margin-top: var(--spacing-xl);
+    max-width: 800px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: 0;
 }
 
 .experience-card {
@@ -588,6 +589,8 @@ section:nth-child(even) {
     border: 1px solid rgba(0, 102, 255, 0.1);
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 800px;
 }
 
 .experience-card:hover {
@@ -851,37 +854,29 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .mobile-nav-toggle {
-        display: flex;
+    .sidebar-nav {
+        width: 60px;
     }
     
-    nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 280px;
-        height: 100vh;
-        background: var(--bg-primary);
-        backdrop-filter: blur(20px);
-        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
-        transition: right var(--transition-base);
-        z-index: 999;
-        padding: 80px var(--spacing-lg) var(--spacing-lg);
-        overflow-y: auto;
+    .nav-logo {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        margin-bottom: var(--spacing-lg);
     }
     
-    nav.active {
-        right: 0;
+    .sidebar-nav .nav-link {
+        font-size: 0.625rem;
+        padding: var(--spacing-xs);
     }
     
-    .nav-links {
-        flex-direction: column;
-        gap: var(--spacing-lg);
-        align-items: flex-start;
+    main {
+        margin-left: 60px;
     }
     
-    nav a {
-        font-size: 1.125rem;
+    .experience-grid {
+        align-items: stretch;
+        max-width: 100%;
     }
     
     .timeline::before {
@@ -909,10 +904,6 @@ footer {
     .company-logo {
         width: 48px;
         height: 48px;
-    }
-    
-    .experience-grid {
-        grid-template-columns: 1fr;
     }
     
     section {

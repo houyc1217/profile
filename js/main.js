@@ -1,59 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM fully loaded');
-    // Mobile navigation toggle
-    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-    const nav = document.querySelector('nav');
-    
-    console.log('Mobile nav toggle element:', mobileNavToggle);
-    console.log('Nav element:', nav);
-    
-    if (mobileNavToggle) {
-        // Use event delegation to ensure click events are properly captured
-        mobileNavToggle.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent default behavior
-            e.stopPropagation(); // Prevent event bubbling
-            
-            this.classList.toggle('active');
-            nav.classList.toggle('active');
-            document.body.classList.toggle('nav-open');
-            
-            console.log('Mobile nav toggle clicked'); // Add debug log
-            console.log('Toggle active state:', this.classList.contains('active'));
-            console.log('Nav active state:', nav.classList.contains('active'));
-        }, true); // Use capture phase
-        
-        // Add touch event support
-        mobileNavToggle.addEventListener('touchstart', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            this.classList.toggle('active');
-            nav.classList.toggle('active');
-            document.body.classList.toggle('nav-open');
-            
-            console.log('Mobile nav toggle touched'); // Add debug log
-            console.log('Toggle active state (touch):', this.classList.contains('active'));
-            console.log('Nav active state (touch):', nav.classList.contains('active'));
-        }, true);
-        
-        // Add event listeners to each span inside the toggle button
-        const spans = mobileNavToggle.querySelectorAll('span');
-        spans.forEach(span => {
-            span.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                // Trigger the parent button's click event
-                const clickEvent = new Event('click', { bubbles: true });
-                mobileNavToggle.dispatchEvent(clickEvent);
-                
-                console.log('Span inside toggle clicked');
-            }, true);
-        });
-    }
-    
-    // Smooth scrolling for navigation links and scroll indicator
-    const navLinks = document.querySelectorAll('nav a, .scroll-indicator a');
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('.sidebar-nav .nav-link, .scroll-indicator a');
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -62,34 +9,59 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             
-            // Close mobile menu if open
-            if (nav.classList.contains('active')) {
-                mobileNavToggle.classList.remove('active');
-                nav.classList.remove('active');
-                document.body.classList.remove('nav-open');
-            }
-            
             if (targetSection) {
+                const offset = 100; // Offset from top
+                const targetPosition = targetSection.offsetTop - offset;
+                
                 window.scrollTo({
-                    top: targetSection.offsetTop - 80, // Offset for header height
+                    top: targetPosition,
                     behavior: 'smooth'
                 });
             }
         });
     });
     
-    // Header scroll effect
-    const header = document.querySelector('header');
+    // Scroll highlight functionality
+    const sections = document.querySelectorAll('section[id]');
+    const navLinksArray = document.querySelectorAll('.sidebar-nav .nav-link');
     
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    function highlightActiveSection() {
+        const scrollPosition = window.pageYOffset + 150; // Offset for better detection
         
-        if (scrollTop > 100) {
-            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.style.boxShadow = '0 1px 0 rgba(0, 0, 0, 0.05)';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                // Remove active class from all nav links
+                navLinksArray.forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // Add active class to corresponding nav link
+                const activeLink = document.querySelector(`.sidebar-nav .nav-link[href="#${sectionId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+        
+        // Handle hero section (when at top of page)
+        if (window.pageYOffset < 100) {
+            navLinksArray.forEach(link => {
+                link.classList.remove('active');
+            });
+            const heroLink = document.querySelector('.sidebar-nav .nav-link[href="#hero"]');
+            if (heroLink) {
+                heroLink.classList.add('active');
+            }
         }
-    });
+    }
+    
+    // Call on scroll and on page load
+    window.addEventListener('scroll', highlightActiveSection);
+    highlightActiveSection(); // Initial call
     
     // Form validation
     const contactForm = document.getElementById('contactForm');
