@@ -168,17 +168,13 @@ a:hover {
     color: var(--primary-dark);
 }
 
-/* Left Sidebar Navigation */
+/* Left Sidebar Navigation - Minimalist Design */
 .sidebar-nav {
     position: fixed;
     left: 0;
     top: 0;
     bottom: 0;
     width: 80px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-right: 1px solid rgba(0, 0, 0, 0.05);
     z-index: 1000;
     display: flex;
     flex-direction: column;
@@ -188,25 +184,24 @@ a:hover {
 }
 
 .nav-logo {
-    width: 48px;
-    height: 48px;
-    border-radius: var(--radius-md);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     background: var(--gradient-primary);
     color: var(--text-light);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    font-size: 1.125rem;
+    font-size: 0.875rem;
     margin-bottom: var(--spacing-2xl);
-    box-shadow: var(--shadow-md);
 }
 
 .sidebar-nav .nav-links {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
     width: 100%;
     padding: 0;
     margin: 0;
@@ -217,14 +212,13 @@ a:hover {
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
     font-size: 0.75rem;
     font-weight: 500;
-    color: var(--text-secondary);
+    color: var(--text-tertiary);
     text-align: center;
     position: relative;
     transition: all var(--transition-base);
-    border-radius: var(--radius-md);
     writing-mode: vertical-rl;
     text-orientation: mixed;
 }
@@ -233,29 +227,33 @@ a:hover {
     content: '';
     position: absolute;
     left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: var(--gradient-primary);
-    border-radius: 0 var(--radius-full) var(--radius-full) 0;
-    opacity: 0;
-    transition: opacity var(--transition-base);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 0;
+    background: var(--primary);
+    border-radius: var(--radius-full);
+    transition: height var(--transition-base);
 }
 
-.sidebar-nav .nav-link:hover,
+.sidebar-nav .nav-link:hover {
+    color: var(--text-secondary);
+}
+
 .sidebar-nav .nav-link.active {
     color: var(--primary);
-    background: rgba(0, 102, 255, 0.05);
+    font-weight: 600;
 }
 
 .sidebar-nav .nav-link.active::before {
-    opacity: 1;
+    height: 24px;
 }
 
-/* Main Content - Add left padding for sidebar */
+/* Main Content - Centered, accounting for sidebar */
 main {
     margin-left: 80px;
     transition: margin-left var(--transition-base);
+    width: calc(100% - 80px);
 }
 
 /* Hero Section */
@@ -557,27 +555,14 @@ section:nth-child(even) {
 }
 
 /* Experience Section */
-#experience .container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-#experience h2 {
-    align-self: center;
-    width: 100%;
-}
-
 .experience-grid {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
     gap: var(--spacing-xl);
     margin-top: var(--spacing-xl);
     max-width: 800px;
     width: 100%;
-    margin-left: auto;
-    margin-right: 0;
+    margin: var(--spacing-xl) auto 0;
 }
 
 .experience-card {
@@ -641,10 +626,13 @@ section:nth-child(even) {
 
 /* Projects Section */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: var(--spacing-xl);
     margin-top: var(--spacing-xl);
+    max-width: 800px;
+    width: 100%;
+    margin: var(--spacing-xl) auto 0;
 }
 
 .project-card {
@@ -656,6 +644,7 @@ section:nth-child(even) {
     border: 1px solid rgba(0, 102, 255, 0.1);
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .project-card:hover {
@@ -848,9 +837,6 @@ footer {
         width: 32px;
     }
     
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 @media (max-width: 768px) {
@@ -859,23 +845,24 @@ footer {
     }
     
     .nav-logo {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
+        width: 36px;
+        height: 36px;
+        font-size: 0.875rem;
         margin-bottom: var(--spacing-lg);
     }
     
     .sidebar-nav .nav-link {
         font-size: 0.625rem;
-        padding: var(--spacing-xs);
+        padding: var(--spacing-xs) 0;
     }
     
     main {
         margin-left: 60px;
+        width: calc(100% - 60px);
     }
     
-    .experience-grid {
-        align-items: stretch;
+    .experience-grid,
+    .projects-grid {
         max-width: 100%;
     }
     
@@ -930,9 +917,6 @@ footer {
         height: 44px;
     }
     
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
     
     .contact-item {
         width: 100%;
