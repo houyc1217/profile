@@ -339,14 +339,14 @@ function generateResponse(query) {
     
     // Contact
     if (q.includes('contact') || q.includes('email') || q.includes('reach') || q.includes('get in touch')) {
-        return `You can reach Yincheng via:<br>📧 Email: <a href="mailto:${knowledgeBase.email}">${knowledgeBase.email}</a><br>💼 LinkedIn: <a href="${knowledgeBase.linkedin}" target="_blank">linkedin.com/in/yincheng-hou</a><br>🐙 GitHub: <a href="${knowledgeBase.github}" target="_blank">github.com/houyc1217</a>`;
+        return `You can reach Yincheng via:<br><br><strong>Email:</strong> <a href="mailto:${knowledgeBase.email}">${knowledgeBase.email}</a><br><strong>LinkedIn:</strong> <a href="${knowledgeBase.linkedin}" target="_blank">linkedin.com/in/yincheng-hou</a><br><strong>GitHub:</strong> <a href="${knowledgeBase.github}" target="_blank">github.com/houyc1217</a>`;
     }
     
     // Education
     if (q.includes('education') || q.includes('study') || q.includes('university') || q.includes('degree') || q.includes('school') || q.includes('college') || q.includes('master') || q.includes('bachelor')) {
         let response = `Yincheng's education background:<br><br>`;
         knowledgeBase.education.forEach(edu => {
-            response += `🎓 <strong>${edu.degree}</strong><br>${edu.school}, ${edu.location}<br>${edu.period}<br>Awards: ${edu.awards}<br><br>`;
+            response += `<strong>${edu.degree}</strong><br>${edu.school}, ${edu.location}<br>${edu.period}<br>Awards: ${edu.awards}<br><br>`;
         });
         return response;
     }
@@ -361,7 +361,7 @@ function generateResponse(query) {
     if (q.includes('experience') || q.includes('work') || q.includes('job') || q.includes('career') || q.includes('intern')) {
         let response = `Yincheng has ${knowledgeBase.experience.length} professional experiences:<br><br>`;
         knowledgeBase.experience.forEach(exp => {
-            response += `💼 <strong>${exp.title}</strong> at ${exp.company}<br>${exp.period} | ${exp.location}<br><br>`;
+            response += `<strong>${exp.title}</strong> at ${exp.company}<br>${exp.period} | ${exp.location}<br><br>`;
         });
         return response + `Ask me about a specific role for more details!`;
     }
@@ -370,7 +370,7 @@ function generateResponse(query) {
     if (q.includes('netmind')) {
         const aiRole = knowledgeBase.experience[0];
         const marketingRole = knowledgeBase.experience[1];
-        return `Yincheng worked at NetMind.AI in two roles:<br><br>1️⃣ <strong>${aiRole.title}</strong> (${aiRole.period})<br>• ${aiRole.highlights[0]}<br>• ${aiRole.highlights[2]}<br><br>2️⃣ <strong>${marketingRole.title}</strong> (${marketingRole.period})<br>• ${marketingRole.highlights[0]}`;
+        return `Yincheng worked at NetMind.AI in two roles:<br><br><strong>1. ${aiRole.title}</strong> (${aiRole.period})<br>• ${aiRole.highlights[0]}<br>• ${aiRole.highlights[2]}<br><br><strong>2. ${marketingRole.title}</strong> (${marketingRole.period})<br>• ${marketingRole.highlights[0]}`;
     }
     
     // China Telecom
@@ -381,7 +381,7 @@ function generateResponse(query) {
     
     // Skills
     if (q.includes('skill') || q.includes('tech') || q.includes('stack') || q.includes('know') || q.includes('can do') || q.includes('expertise')) {
-        return `Yincheng's technical skills include:<br><br>🤖 <strong>AI/ML:</strong> LangChain, RAG, vLLM, Claude Code, MCP, Agentic AI, Prompt Engineering<br><br>☁️ <strong>Cloud & DevOps:</strong> AWS, GCP, Docker, Kubernetes, Terraform, GitHub Actions<br><br>📊 <strong>Data:</strong> Python, SQL, Tableau, Databricks`;
+        return `Yincheng's technical skills include:<br><br><strong>AI/ML:</strong> LangChain, RAG, vLLM, Claude Code, MCP, Agentic AI, Prompt Engineering<br><br><strong>Cloud & DevOps:</strong> AWS, GCP, Docker, Kubernetes, Terraform, GitHub Actions<br><br><strong>Data:</strong> Python, SQL, Tableau, Databricks`;
     }
     
     // RAG / LLM specific
@@ -401,11 +401,11 @@ function generateResponse(query) {
     
     // Thanks
     if (q.includes('thank') || q.includes('thanks')) {
-        return `You're welcome! Feel free to ask if you have any other questions about Yincheng. 😊`;
+        return `You're welcome! Feel free to ask if you have any other questions about Yincheng.`;
     }
     
     // Default response
-    return `I can help you learn about Yincheng! Try asking about:<br>• His <strong>education</strong> background<br>• <strong>Work experience</strong> and roles<br>• Technical <strong>skills</strong><br>• How to <strong>contact</strong> him`;
+    return `I'm not sure I understand that question. You can try asking about:<br><br>• His <strong>education</strong> background<br>• <strong>Work experience</strong> and roles<br>• Technical <strong>skills</strong><br><br>Or feel free to <a href="#contact" onclick="document.getElementById('chatbotWidget').classList.remove('open')">contact Yincheng directly</a> for more specific inquiries.`;
 }
 
 // Event listeners for sending messages
