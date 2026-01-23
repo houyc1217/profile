@@ -35,12 +35,13 @@
     --spacing-2xl: 4rem;
     --spacing-3xl: 6rem;
     
-    /* Border Radius */
-    --radius-sm: 8px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
-    --radius-xl: 32px;
-    --radius-full: 9999px;
+    /* Border Radius - Apple-inspired 8px base system */
+    --radius-xs: 4px;      /* Small inputs, subtle rounding */
+    --radius-sm: 8px;      /* Buttons, small elements */
+    --radius-md: 12px;     /* Cards, medium containers */
+    --radius-lg: 16px;     /* Large cards, sections */
+    --radius-xl: 20px;     /* Hero sections, large containers */
+    --radius-full: 9999px; /* Pills, tags, avatars */
     
     /* Shadows */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -494,7 +495,7 @@ section {
     width: 18px;
     height: 18px;
     background: var(--accent-primary);
-    border-radius: 50%;
+    border-radius: var(--radius-full);
     border: 3px solid var(--bg-primary);
     box-shadow: 0 0 0 3px var(--accent-primary);
 }
@@ -1093,7 +1094,7 @@ footer {
 .chatbot-toggle {
     width: 56px;
     height: 56px;
-    border-radius: 50%;
+    border-radius: var(--radius-full);
     background: var(--accent-primary);
     border: none;
     cursor: pointer;
@@ -1190,7 +1191,7 @@ footer {
 .chatbot-avatar {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    border-radius: var(--radius-full);
     background: var(--accent-primary);
     color: #000000;
     display: flex;
@@ -1264,7 +1265,7 @@ footer {
 .bot-message .message-content {
     background: #ffffff;
     color: #000000;
-    border-bottom-left-radius: 4px;
+    border-bottom-left-radius: var(--radius-xs);
 }
 
 [data-theme="dark"] .bot-message .message-content {
@@ -1275,7 +1276,7 @@ footer {
 .user-message .message-content {
     background: var(--accent-primary);
     color: #000000;
-    border-bottom-right-radius: 4px;
+    border-bottom-right-radius: var(--radius-xs);
 }
 
 /* Typing Indicator */
@@ -1285,7 +1286,7 @@ footer {
     padding: var(--spacing-sm) var(--spacing-md);
     background: #ffffff;
     border-radius: var(--radius-md);
-    border-bottom-left-radius: 4px;
+    border-bottom-left-radius: var(--radius-xs);
     width: fit-content;
 }
 
@@ -1297,7 +1298,7 @@ footer {
     width: 8px;
     height: 8px;
     background: #999;
-    border-radius: 50%;
+    border-radius: var(--radius-full);
     animation: typingBounce 1.4s infinite ease-in-out;
 }
 
@@ -1367,7 +1368,7 @@ footer {
 .chatbot-send {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    border-radius: var(--radius-full);
     background: var(--accent-primary);
     border: none;
     cursor: pointer;
