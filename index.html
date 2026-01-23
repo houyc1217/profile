@@ -1,209 +1,268 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Yincheng Hou's Personal Profile - Portfolio showcasing education, professional experience, projects and publications">
-    <meta name="theme-color" content="#0071e3">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Yincheng Hou - AI Engineer & Solutions Architect. MSc Robotics from King's College London. Specializing in LLM, RAG, Cloud Architecture, and AI Solutions.">
+    <meta name="keywords" content="Yincheng Hou, AI Engineer, Solutions Architect, LLM, RAG, Cloud, King's College London">
+    <meta name="author" content="Yincheng Hou">
+    <meta name="theme-color" content="#000000">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Yincheng Hou | Personal Profile</title>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Yincheng Hou | AI Engineer & Solutions Architect">
+    <meta property="og:description" content="AI Engineer specializing in LLM, RAG, and Cloud Architecture. MSc Robotics from King's College London.">
+    <meta property="og:type" content="website">
+    
+    <title>Yincheng Hou | AI Engineer & Solutions Architect</title>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <nav class="sidebar-nav">
-        <div class="nav-logo">YH</div>
-        <ul class="nav-links">
-            <li><a href="#hero" class="nav-link">Home</a></li>
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#education" class="nav-link">Education</a></li>
-            <li><a href="#experience" class="nav-link">Experience</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#contacts" class="nav-link">Contact</a></li>
-        </ul>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="nav-logo">
+                <span class="nav-logo-text">YH</span>
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link active">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
     </nav>
 
     <main>
+        <!-- Hero Section -->
         <section id="hero">
             <div class="container">
-                <h1>Yincheng Hou</h1>
-                <p class="tagline">MSc Robotics (Pass with Distinction) | AI Solutions Engineer & Strategic Marketing</p>
-                <div class="scroll-indicator">
-                    <a href="#about" aria-label="Scroll down to About section">
-                        <img src="assets/icons/scroll-down.svg" alt="Scroll down" class="scroll-down-arrow">
-                    </a>
+                <h1 class="hero-title">Hey, I'm Yincheng</h1>
+                <p class="hero-subtitle">AI Engineer & Solutions Architect with expertise in LLM, RAG, and Cloud Architecture. MSc Robotics (Distinction) from King's College London.</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="#experience" class="btn btn-secondary">View Experience</a>
                 </div>
+            </div>
+            <div class="scroll-indicator">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
             </div>
         </section>
 
+        <!-- About Section -->
         <section id="about">
             <div class="container">
-                <h2>About Me</h2>
+                <div class="section-header">
+                    <h2>About Me</h2>
+                </div>
                 <div class="about-content">
-                    <div class="bio">
-                        <h3>Yincheng Hou</h3>
+                    <div class="about-text">
+                        <p>A passionate AI engineer and solutions architect with a focus on large language models, cloud technologies, and enterprise AI solutions. Recently completed an MSc in Robotics (Pass with Distinction) at King's College London, with extensive experience in AI engineering, solutions architecture, data analytics, and strategic marketing.</p>
+                        
                         <div class="skill-tags">
                             <span class="skill-tag">Python</span>
-                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">LangChain</span>
+                            <span class="skill-tag">RAG</span>
+                            <span class="skill-tag">Claude Code</span>
                             <span class="skill-tag">Docker</span>
                             <span class="skill-tag">Kubernetes</span>
-                            <span class="skill-tag">LangChain</span>
-                            <span class="skill-tag">Dify</span>
-                            <span class="skill-tag">RAG</span>
-                            <span class="skill-tag">Cloud Architecture</span>
-                            <span class="skill-tag">AI Solutions</span>
-                            <span class="skill-tag">SEO</span>
-                            <span class="skill-tag">Content Strategy</span>
-                            <span class="skill-tag">B2B Marketing</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">GCP</span>
+                            <span class="skill-tag">Terraform</span>
+                            <span class="skill-tag">GitHub Actions</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Tableau</span>
+                            <span class="skill-tag">Prompt Engineering</span>
                         </div>
-                        <p>A passionate AI engineer and strategic marketer with a focus on robotics, cloud technologies, and AI solutions. Recently completed an MSc in Robotics (Pass with Distinction) at King's College London, with extensive experience in AI pre-sales engineering, data analytics, cloud engineering, and strategic marketing.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Education Section -->
         <section id="education">
             <div class="container">
-                <h2>Education</h2>
+                <div class="section-header">
+                    <h2>Education</h2>
+                </div>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="timeline-date">September 2024 – September 2025</div>
-                        <div class="timeline-content">
-                            <img src="assets/images/kcl.jpg" alt="King's College London Logo" class="school-logo">
-                            <h3>King's College London</h3>
-                            <h4>MSc Robotics (Pass with Distinction), London, United Kingdom</h4>
-                            <p><strong>Core Modules:</strong> Intelligence & Autonomy; Sensing & Perception; Robot Kinematics & Motion Planning</p>
-                            <p><strong>Key Awards:</strong> President's Global Leadership Award (PGLA)</p>
+                        <div class="timeline-card">
+                            <span class="timeline-date">September 2024 – September 2025</span>
+                            <div class="timeline-header">
+                                <img src="assets/images/kcl.jpg" alt="King's College London" class="timeline-logo">
+                                <div class="timeline-info">
+                                    <h3>King's College London</h3>
+                                    <h4>MSc Robotics (Pass with Distinction)</h4>
+                                    <h4>London, United Kingdom</h4>
+                                </div>
+                            </div>
+                            <div class="timeline-details">
+                                <p><strong>Core Modules:</strong> Intelligence & Autonomy, Sensing & Perception, Advanced Machine Learning</p>
+                                <p><strong>Awards:</strong> President's Global Leadership Award (PGLA)</p>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="timeline-item">
-                        <div class="timeline-date">June 2024 – July 2024</div>
-                        <div class="timeline-content">
-                            <img src="assets/images/ul.jpg" alt="University of Lisbon Logo" class="school-logo">
-                            <h3>University of Lisbon</h3>
-                            <h4>Exchange Program, Lisbon, Portugal</h4>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">September 2020 – June 2024</div>
-                        <div class="timeline-content">
-                            <img src="assets/images/shu.jpg" alt="Shanghai University Logo" class="school-logo">
-                            <h3>Shanghai University</h3>
-                            <h4>BE Electronic Information Engineering, Shanghai, China</h4>
-                            <p><strong>Core Modules:</strong> Data Structure & Algorithm; Analog & Digital Circuits; Signals & Systems; Telecom Theory</p>
-                            <p><strong>Key Awards:</strong> Outstanding Student Leader; Outstanding Student; Innovation & Entrepreneurship Scholarship</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">July 2019 – August 2019</div>
-                        <div class="timeline-content">
-                            <img src="assets/images/pegs.jpg" alt="Penleigh and Essendon Grammar School Logo" class="school-logo">
-                            <h3>Penleigh and Essendon Grammar School</h3>
-                            <h4>Exchange Program, Melbourne, Australia</h4>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">September 2017 – June 2020</div>
-                        <div class="timeline-content">
-                            <img src="assets/images/sdhs.jpg" alt="Shanghai Datong High School Logo" class="school-logo">
-                            <h3>Shanghai Datong High School</h3>
-                            <h4>Senior High School, Shanghai, China</h4>
+                        <div class="timeline-card">
+                            <span class="timeline-date">September 2020 – June 2024</span>
+                            <div class="timeline-header">
+                                <img src="assets/images/shu.jpg" alt="Shanghai University" class="timeline-logo">
+                                <div class="timeline-info">
+                                    <h3>Shanghai University</h3>
+                                    <h4>BE Electronic Information Engineering</h4>
+                                    <h4>Shanghai, China</h4>
+                                </div>
+                            </div>
+                            <div class="timeline-details">
+                                <p><strong>Core Modules:</strong> Data Structure & Algorithm, Analog & Digital Circuits, Signals & Systems, Telecom Theory</p>
+                                <p><strong>Awards:</strong> Outstanding Student Leader, Outstanding Student, Innovation & Entrepreneurship Scholarship</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Experience Section -->
         <section id="experience">
             <div class="container">
-                <h2>Professional Experience</h2>
-                
+                <div class="section-header">
+                    <h2>Professional Experience</h2>
+                </div>
                 <div class="experience-grid">
+                    <!-- NetMind AI Engineer -->
                     <div class="experience-card">
-                        <div class="experience-date">August 2025 – November 2025</div>
+                        <span class="experience-date">November 2025 – January 2026</span>
+                        <span class="experience-type">Internship</span>
                         <div class="experience-header">
-                            <img src="assets/images/netmind.png" alt="NetMind.AI Logo" class="company-logo">
-                            <div class="experience-header-content">
-                                <h3>Strategic Marketing Intern</h3>
-                                <h4>NetMind.AI, London, United Kingdom</h4>
+                            <img src="assets/images/netmind.png" alt="NetMind.AI" class="experience-logo">
+                            <div class="experience-info">
+                                <h3>Artificial Intelligence Engineer</h3>
+                                <h4>NetMind.AI · London, United Kingdom</h4>
                             </div>
                         </div>
                         <div class="experience-content">
                             <ul>
-                                <li>Created 15+ product demo posts across LinkedIn (grew followers by 2000+), Reddit (3000+ upvotes), and published guest articles in 8+ tech publications including SwissCognitive and DataCamp. Translated complex LLM/MLOps concepts into B2B narratives, increasing organic website traffic by 40% via SEO-optimised content strategy.</li>
-                                <li>Streamlined internal marketing operations by developing 3 standardised content templates, reducing review cycle time by 50%. Analysed government AI support programs to inform positioning strategy.</li>
-                                <li>Managed marketing booth operations at industry events (AWS, Luna) and AI panel conferences. Directly generated 3 qualified enterprise leads through networking valued at £10,000 potential ARR.</li>
+                                <li>Architected multi-modal vLLM inference pipeline using VLM extraction with overlap chunking, feeding structured data to LLM for JSON output. Reduced 50% processing cost whilst maintaining acceptable accuracy across 10,000+ policy pages.</li>
+                                <li>Developed social media agentic AI with weekly human-in-the-loop approval workflow through iterative feedback and MCP tools integration. Engineered Claude Code plugin deployed to server marketplace, attracting 4,000+ interactions.</li>
                             </ul>
-                            <div class="skill-tags">
-                                <span class="skill-tag">SEO</span>
-                                <span class="skill-tag">Content Strategy</span>
-                                <span class="skill-tag">B2B Marketing</span>
-                                <span class="skill-tag">Technical Writing</span>
-                                <span class="skill-tag">Lead Generation</span>
-                                <span class="skill-tag">Google Analytics</span>
+                            <div class="experience-tags">
+                                <span class="experience-tag">vLLM</span>
+                                <span class="experience-tag">Claude Code</span>
+                                <span class="experience-tag">MCP</span>
+                                <span class="experience-tag">Agentic AI</span>
+                                <span class="experience-tag">Multi-modal</span>
                             </div>
                         </div>
                     </div>
-                    
+
+                    <!-- NetMind Marketing -->
                     <div class="experience-card">
-                        <div class="experience-date">May 2025 – October 2025</div>
+                        <span class="experience-date">August 2025 – November 2025</span>
+                        <span class="experience-type">Internship</span>
                         <div class="experience-header">
-                            <img src="assets/images/china-telecom.jpg" alt="China Telecom Europe Logo" class="company-logo">
-                            <div class="experience-header-content">
-                                <h3>AI Pre-sales Solutions Engineer Intern</h3>
-                                <h4>China Telecom Europe - Cloud Business Development Department, London, United Kingdom</h4>
+                            <img src="assets/images/netmind.png" alt="NetMind.AI" class="experience-logo">
+                            <div class="experience-info">
+                                <h3>Marketing (Tech Background)</h3>
+                                <h4>NetMind.AI · London, United Kingdom</h4>
                             </div>
                         </div>
                         <div class="experience-content">
                             <ul>
-                                <li>Deployed cloud-native LLMs as chatbot agents on AWS and GCP scalable Linux/Ubuntu GPU instances. Containerised services with Docker and orchestrated with Kubernetes for accelerated iteration within teams.</li>
-                                <li>Architected enterprise-grade RAG knowledge platform. Performed data engineering and chunking optimisation with RAGFlow, Dify, and LangChain. Enhanced platform capabilities with MCP tools for automated chart visualisation. Developed robust Python and shell-based Github Actions CI/CD automation for version control and workflows.</li>
-                                <li>Implemented Terraform IaC practices to automate knowledge base updates and content synchronisation. Optimised POC solutions in production environments per client requirements. Provided in-time incident and troubleshooting support, throughout pre-sales engagement to facilitate €30,000 contract closure.</li>
+                                <li>Created 15+ product demo posts across LinkedIn (grew followers by 2000+), Reddit (3000+ upvotes), and published guest articles in 8+ tech publications, increasing organic website traffic by 40%.</li>
+                                <li>Streamlined internal marketing operations by developing 3 standardised content templates, reducing review cycle time by 40%. Collaborated with AWS & LLM London for AI community panels, generating 3 qualified enterprise leads valued at £10,000 potential ARR.</li>
                             </ul>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Cloud-native LLMs</span>
-                                <span class="skill-tag">Docker</span>
-                                <span class="skill-tag">Kubernetes</span>
-                                <span class="skill-tag">RAG</span>
-                                <span class="skill-tag">LangChain</span>
-                                <span class="skill-tag">Terraform</span>
-                                <span class="skill-tag">CI/CD</span>
-                                <span class="skill-tag">AWS</span>
-                                <span class="skill-tag">GCP</span>
+                            <div class="experience-tags">
+                                <span class="experience-tag">SEO</span>
+                                <span class="experience-tag">Content Strategy</span>
+                                <span class="experience-tag">B2B Marketing</span>
+                                <span class="experience-tag">Lead Generation</span>
                             </div>
                         </div>
                     </div>
-                    
+
+                    <!-- China Telecom -->
                     <div class="experience-card">
-                        <div class="experience-date">September 2023 – December 2023</div>
+                        <span class="experience-date">May 2025 – October 2025</span>
+                        <span class="experience-type">Internship</span>
                         <div class="experience-header">
-                            <img src="assets/images/himalaya-tech.jpg" alt="Shanghai Himalaya Technology Logo" class="company-logo">
-                            <div class="experience-header-content">
-                                <h3>Data Analytics Intern</h3>
-                                <h4>Shanghai Himalaya Technology Co., Ltd. - Product Operation Department, Shanghai, China</h4>
+                            <img src="assets/images/china-telecom.jpg" alt="China Telecom Europe" class="experience-logo">
+                            <div class="experience-info">
+                                <h3>Solutions Architecture Engineer</h3>
+                                <h4>China Telecom Europe · London, United Kingdom</h4>
                             </div>
                         </div>
                         <div class="experience-content">
                             <ul>
-                                <li>Implemented data extraction pipelines to parse HTML files. Engineered web scraping solutions with simulated browser configurations for automated data acquisition. Leveraged Excel pivot analysis for data visualisations.</li>
-                                <li>Developed competitor intelligence dashboards using SQL queries. Regularly collaborated with business stakeholders to deliver in-depth database analysis insights for strategic decision-making.</li>
-                                <li>Utilised Panda scheduling to build automated Hive data models. Created comprehensive BI dashboards with QuickBI and Tableau to monitor enterprise-wide KPIs and performance indicators. Collaborated closely with product teams to provide actionable recommendations for operational strategy optimisation.</li>
+                                <li>Deployed cloud-native LLMs as chatbot agents on AWS and GCP scalable EC2 instances. Containerised services with Docker and orchestrated with Kubernetes for accelerated iteration within teams.</li>
+                                <li>Architected enterprise-grade RAG knowledge platform. Performed data engineering & chunking optimisation with LangChain. Enhanced platform capabilities with MCP tools for automated chart visualisation.</li>
+                                <li>Implemented Terraform IaC practices to automate knowledge base updates. Provided in-time incident & troubleshooting support throughout pre-sales engagement to facilitate €30,000 contract closure.</li>
                             </ul>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Data Engineering</span>
-                                <span class="skill-tag">SQL</span>
-                                <span class="skill-tag">Business Intelligence</span>
-                                <span class="skill-tag">QuickBI</span>
-                                <span class="skill-tag">Tableau</span>
-                                <span class="skill-tag">Hive</span>
-                                <span class="skill-tag">Data Analysis</span>
+                            <div class="experience-tags">
+                                <span class="experience-tag">AWS</span>
+                                <span class="experience-tag">GCP</span>
+                                <span class="experience-tag">Docker</span>
+                                <span class="experience-tag">Kubernetes</span>
+                                <span class="experience-tag">RAG</span>
+                                <span class="experience-tag">LangChain</span>
+                                <span class="experience-tag">Terraform</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Himalaya -->
+                    <div class="experience-card">
+                        <span class="experience-date">September 2023 – December 2023</span>
+                        <span class="experience-type">Internship</span>
+                        <div class="experience-header">
+                            <img src="assets/images/himalaya-tech.jpg" alt="Shanghai Himalaya Technology" class="experience-logo">
+                            <div class="experience-info">
+                                <h3>Data Analyst</h3>
+                                <h4>Shanghai Himalaya Technology · Shanghai, China</h4>
+                            </div>
+                        </div>
+                        <div class="experience-content">
+                            <ul>
+                                <li>Implemented data extraction pipelines to parse HTML files. Engineered web scraping solutions with simulated browser configurations for automated data acquisition.</li>
+                                <li>Developed competitor intelligence dashboards using SQL queries. Collaborated with business stakeholders to deliver in-depth database analysis insights for strategic decision-making.</li>
+                                <li>Created comprehensive BI dashboards with Databricks & Tableau to monitor performance indicators. Provided actionable strategy suggestions to product teams.</li>
+                            </ul>
+                            <div class="experience-tags">
+                                <span class="experience-tag">SQL</span>
+                                <span class="experience-tag">Databricks</span>
+                                <span class="experience-tag">Tableau</span>
+                                <span class="experience-tag">Web Scraping</span>
+                                <span class="experience-tag">Data Analysis</span>
                             </div>
                         </div>
                     </div>
@@ -211,125 +270,55 @@
             </div>
         </section>
 
+        <!-- Projects Section -->
         <section id="projects">
             <div class="container">
-                <h2>Projects and Publications</h2>
-                
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="assets/images/IEEE-Logo.jpg" alt="An End-to-End CNN Intelligent Vehicle Driving Model" width="100%" height="auto">
-                        </div>
-                        <div class="project-content">
-                            <h3>An End-to-End CNN Intelligent Vehicle Driving Model</h3>
-                            <p class="project-meta">First Author of the Paper - IPEC2023</p>
-                            <p class="project-date">December 2022 – April 2023</p>
-                            <ul>
-                                <li>Implemented scikit-learn framework for dataset preprocessing and feature engineering. Optimised CNN architectures through hyperparameter tuning and conducted model evaluation with loss visualisation with Matplotlib.</li>
-                                <li>Applied regularisation techniques and early stopping to mitigate overfitting in PyTorch/TensorFlow. Achieved 9% performance improvement over baseline models through hyperparameter optimisation.</li>
-                            </ul>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Deep Learning</span>
-                                <span class="skill-tag">CNN Architecture</span>
-                                <span class="skill-tag">PyTorch</span>
-                                <span class="skill-tag">TensorFlow</span>
-                                <span class="skill-tag">scikit-learn</span>
-                            </div>
-                            <a href="https://ieeexplore.ieee.org/document/10412716" target="_blank" class="btn-primary">View Publication</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="assets/images/shu.jpg" alt="Model and Algorithm for Shredded Paper Recovery" width="100%" height="auto">
-                        </div>
-                        <div class="project-content">
-                            <h3>Model and Algorithm for Shredded Paper Recovery</h3>
-                            <p class="project-meta">Key Member</p>
-                            <p class="project-date">July 2021 – September 2021</p>
-                            <ul>
-                                <li>Leveraged Image Processing Toolbox in MATLAB to convert between the pixel value matrix of the image and the visualisation results. Implemented the correlation scoring algorithm.</li>
-                                <li>Used Python's Pandas and NumPy libraries to process pixel grayscale values and design a scoring algorithm, led to a 20% improvement in accuracy. Secured second place in Shanghai National Maths Modeling competition.</li>
-                            </ul>
-                            <div class="skill-tags">
-                                <span class="skill-tag">MATLAB</span>
-                                <span class="skill-tag">Python</span>
-                                <span class="skill-tag">Image Processing</span>
-                                <span class="skill-tag">Algorithm Design</span>
-                                <span class="skill-tag">Data Analysis</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="assets/images/shu.jpg" alt="Student Union of Shanghai University" width="100%" height="auto">
-                        </div>
-                        <div class="project-content">
-                            <h3>Student Union of Shanghai University</h3>
-                            <p class="project-meta">26th President - Responsible for External Affairs and Media Operation</p>
-                            <p class="project-date">July 2023 – June 2024</p>
-                            <ul>
-                                <li>Oversaw a team of 12 staff and 65 officers, directing 8 events for 3,000 students, organising 4 external visits and 6 federation activities, approving budgets and swiftly resolving changes and discrepancies with clear communication.</li>
-                                <li>Produced and merged over 250 WeChat posts, showcasing expertise in layout design, text editing, and photo/video shooting and post-production.</li>
-                            </ul>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Team Leadership</span>
-                                <span class="skill-tag">Event Management</span>
-                                <span class="skill-tag">Content Creation</span>
-                                <span class="skill-tag">Media Production</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="assets/images/shu.jpg" alt="Volunteer Association of Shanghai University" width="100%" height="auto">
-                        </div>
-                        <div class="project-content">
-                            <h3>Volunteer Association of Shanghai University</h3>
-                            <p class="project-meta">12th President - Responsible for On-site Response and Project Management</p>
-                            <p class="project-date">August 2022 – July 2023</p>
-                            <ul>
-                                <li>Managed and tracked 200+ volunteer activities (e.g., CIIE), organised 80+ events (e.g., Volunteer Culture Week), logging 400+ hours and overseeing on-site scheduling and issue response.</li>
-                                <li>Hosted on campus events for 1,600+ students with tailored participant services. Streamlined the volunteer management pipeline to boost efficiency and cut costs by 30%.</li>
-                            </ul>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Project Management</span>
-                                <span class="skill-tag">Event Planning</span>
-                                <span class="skill-tag">Process Optimisation</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- More project cards can be added here -->
+                <div class="section-header">
+                    <h2>Projects</h2>
+                    <p class="section-subtitle">A collection of my work and contributions</p>
+                </div>
+                <div class="projects-placeholder">
+                    <p>Projects coming soon. Stay tuned for updates on my latest work in AI, cloud architecture, and more.</p>
                 </div>
             </div>
         </section>
 
-        <section id="contacts">
+        <!-- Contact Section -->
+        <section id="contact">
             <div class="container">
-                <h2>Contacts</h2>
-                
+                <div class="section-header">
+                    <h2>Get in Touch</h2>
+                </div>
                 <div class="contact-content">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <img src="assets/icons/email.svg" alt="Email" width="24" height="24">
-                            <span class="contact-label">Email:</span>
-                            <a href="mailto:houyc1217@gmail.com">houyc1217@gmail.com</a>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-label">Tel:</span>
-                            <a href="tel:+4407541018852">+44 07541018852</a>
+                    <div class="contact-cta">
+                        <h3>Sound Good?</h3>
+                        <p>Feel free to reach out if you'd like to collaborate, discuss opportunities, or just say hello.</p>
+                        <div class="contact-links">
+                            <a href="mailto:houyc1217@gmail.com" class="contact-link">
+                                <span>houyc1217@gmail.com</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                            <a href="tel:+4407541018852" class="contact-link">
+                                <span>+44 07541018852</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
                         </div>
                     </div>
                     
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/yincheng-hou" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/icons/linkedin.svg" alt="LinkedIn" width="32" height="32">
+                        <a href="https://www.linkedin.com/in/yincheng-hou" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
                         </a>
-                        <a href="https://github.com/houyc1217" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/icons/github.svg" alt="GitHub" width="32" height="32">
+                        <a href="https://github.com/houyc1217" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
                         </a>
                     </div>
                 </div>
@@ -337,9 +326,19 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p> </p>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#education">Education</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <p class="footer-copyright">© 2026 Yincheng Hou. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 

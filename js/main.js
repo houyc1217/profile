@@ -1,180 +1,125 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('.sidebar-nav .nav-link, .scroll-indicator a');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const offset = 100; // Offset from top
-                const targetPosition = targetSection.offsetTop - offset;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
+// Theme Toggle
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+
+// Check for saved theme preference or default to dark
+const savedTheme = localStorage.getItem('theme') || 'dark';
+html.setAttribute('data-theme', savedTheme);
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+}
+
+// Mobile Menu Toggle
+const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+const navLinks = document.getElementById('navLinks');
+
+if (mobileMenuToggle && navLinks) {
+    mobileMenuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        mobileMenuToggle.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    navLinks.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
         });
     });
+}
+
+// Active Navigation Link on Scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinksAll = document.querySelectorAll('.nav-link');
+
+function highlightNavOnScroll() {
+    const scrollY = window.pageYOffset;
     
-    // Scroll highlight functionality
-    const sections = document.querySelectorAll('section[id]');
-    const navLinksArray = document.querySelectorAll('.sidebar-nav .nav-link');
-    
-    function highlightActiveSection() {
-        const scrollPosition = window.pageYOffset + 150; // Offset for better detection
+    sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute('id');
         
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                // Remove active class from all nav links
-                navLinksArray.forEach(link => {
-                    link.classList.remove('active');
-                });
-                
-                // Add active class to corresponding nav link
-                const activeLink = document.querySelector(`.sidebar-nav .nav-link[href="#${sectionId}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
-            }
-        });
-        
-        // Handle hero section (when at top of page)
-        if (window.pageYOffset < 100) {
-            navLinksArray.forEach(link => {
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLinksAll.forEach(link => {
                 link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
+                }
             });
-            const heroLink = document.querySelector('.sidebar-nav .nav-link[href="#hero"]');
-            if (heroLink) {
-                heroLink.classList.add('active');
-            }
         }
-    }
-    
-    // Call on scroll and on page load
-    window.addEventListener('scroll', highlightActiveSection);
-    highlightActiveSection(); // Initial call
-    
-    // Form validation
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const nameInput = document.getElementById('name');
-            const emailInput = document.getElementById('email');
-            const messageInput = document.getElementById('message');
-            
-            let isValid = true;
-            
-            // Simple validation
-            if (nameInput.value.trim() === '') {
-                showError(nameInput, 'Please enter your name');
-                isValid = false;
-            } else {
-                removeError(nameInput);
-            }
-            
-            if (emailInput.value.trim() === '') {
-                showError(emailInput, 'Please enter your email');
-                isValid = false;
-            } else if (!isValidEmail(emailInput.value)) {
-                showError(emailInput, 'Please enter a valid email address');
-                isValid = false;
-            } else {
-                removeError(emailInput);
-            }
-            
-            if (messageInput.value.trim() === '') {
-                showError(messageInput, 'Please enter your message');
-                isValid = false;
-            } else {
-                removeError(messageInput);
-            }
-            
-            if (isValid) {
-                // In a real application, you would send the form data to a server here
-                // For this demo, we'll just show a success message
-                contactForm.innerHTML = '<div class="success-message">Thank you for your message! I\'ll get back to you soon.</div>';
-            }
-        });
-    }
-    
-    function showError(input, message) {
-        const formGroup = input.parentElement;
-        let errorElement = formGroup.querySelector('.error-message');
-        
-        if (!errorElement) {
-            errorElement = document.createElement('div');
-            errorElement.className = 'error-message';
-            formGroup.appendChild(errorElement);
-        }
-        
-        errorElement.textContent = message;
-        formGroup.classList.add('error');
-    }
-    
-    function removeError(input) {
-        const formGroup = input.parentElement;
-        const errorElement = formGroup.querySelector('.error-message');
-        
-        if (errorElement) {
-            formGroup.removeChild(errorElement);
-        }
-        
-        formGroup.classList.remove('error');
-    }
-    
-    function isValidEmail(email) {
-        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
-    }
-    
-    // Add active class to nav links on scroll
-    const sections = document.querySelectorAll('section');
-    
-    window.addEventListener('scroll', function() {
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            
-            if (pageYOffset >= (sectionTop - 200)) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
     });
-    
-    // Add animation on scroll
-    const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.timeline-item, .experience-item, .project-card');
-        
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (elementPosition < windowHeight - 100) {
-                element.classList.add('animate');
-            }
-        });
-    };
-    
-    window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // Run once on page load
+}
+
+window.addEventListener('scroll', highlightNavOnScroll);
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const headerOffset = 80;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
 });
+
+// Navbar background on scroll
+const navbar = document.querySelector('.navbar');
+
+function updateNavbarOnScroll() {
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.style.background = 'var(--bg-nav)';
+            navbar.style.boxShadow = 'var(--shadow-md)';
+        } else {
+            navbar.style.background = 'transparent';
+            navbar.style.boxShadow = 'none';
+        }
+    }
+}
+
+window.addEventListener('scroll', updateNavbarOnScroll);
+
+// Initialize navbar state
+updateNavbarOnScroll();
+
+// Intersection Observer for animations
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in-up');
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Observe elements for animation
+document.querySelectorAll('.timeline-card, .experience-card, .project-card').forEach(el => {
+    observer.observe(el);
+});
+
+// Console Easter Egg
+console.log('%c👋 Hey there, curious developer!', 'font-size: 20px; font-weight: bold;');
+console.log('%cThanks for checking out my portfolio. Feel free to reach out!', 'font-size: 14px;');
+console.log('%c📧 houyc1217@gmail.com', 'font-size: 12px; color: #1DB954;');
