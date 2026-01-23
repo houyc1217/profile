@@ -1055,3 +1055,26 @@ footer {
 .mb-lg {
     margin-bottom: var(--spacing-lg);
 }
+
+
+/* Typewriter Cursor */
+.cursor {
+    display: inline-block;
+    font-weight: 100;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+#typewriter {
+    display: inline;
+    border-right: none;
+}

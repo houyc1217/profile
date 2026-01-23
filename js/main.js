@@ -1,3 +1,54 @@
+// Typewriter Effect
+const typewriterElement = document.getElementById('typewriter');
+const phrases = [
+    "I'm Yincheng",
+    "great to see you here!",
+    "let's build something amazing",
+    "I love AI & Cloud"
+];
+
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typingSpeed = 100;
+
+function typeWriter() {
+    if (!typewriterElement) return;
+    
+    const currentPhrase = phrases[phraseIndex];
+    
+    if (isDeleting) {
+        // Deleting characters
+        typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+        typingSpeed = 50;
+    } else {
+        // Typing characters
+        typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+        typingSpeed = 100;
+    }
+    
+    // If word is complete
+    if (!isDeleting && charIndex === currentPhrase.length) {
+        // Pause at end of phrase
+        typingSpeed = 2000;
+        isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+        // Move to next phrase
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        typingSpeed = 500;
+    }
+    
+    setTimeout(typeWriter, typingSpeed);
+}
+
+// Start typewriter effect when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(typeWriter, 500);
+});
+
 // Theme Toggle
 const themeToggle = document.getElementById('themeToggle');
 const html = document.documentElement;
