@@ -1,10 +1,8 @@
 // Typewriter Effect
 const typewriterElement = document.getElementById('typewriter');
 const phrases = [
-    "I'm Yincheng",
-    "great to see you here!",
-    "let's build something amazing",
-    "I love AI & Cloud"
+    "I'm Yincheng!",
+    "great to see you here!"
 ];
 
 let phraseIndex = 0;
@@ -173,4 +171,4 @@ document.querySelectorAll('.timeline-card, .experience-card, .project-card').for
 // Console Easter Egg
 console.log('%c👋 Hey there, curious developer!', 'font-size: 20px; font-weight: bold;');
 console.log('%cThanks for checking out my portfolio. Feel free to reach out!', 'font-size: 14px;');
-console.log('%c📧 houyc1217@gmail.com', 'font-size: 12px; color: #1DB954;');
+console.log('%c📧 houyc1217@gmail.com', 'font-size: 12px; color: #7cc4f5;');
