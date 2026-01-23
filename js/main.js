@@ -2,7 +2,7 @@
 const typewriterElement = document.getElementById('typewriter');
 const phrases = [
     "I'm Yincheng!",
-    "great to see you here!"
+    'great to see you here!'
 ];
 
 let phraseIndex = 0;
@@ -184,87 +184,87 @@ const chatbotSend = document.getElementById('chatbot-send');
 
 // Knowledge base from the webpage content
 const knowledgeBase = {
-    name: "Yincheng Hou",
-    title: "AI Engineer & Solutions Architect",
-    email: "houyc1217@gmail.com",
-    linkedin: "https://www.linkedin.com/in/yincheng-hou",
-    github: "https://github.com/houyc1217",
+    name: 'Yincheng Hou',
+    title: 'AI Engineer & Solutions Architect',
+    email: 'houyc1217@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/yincheng-hou',
+    github: 'https://github.com/houyc1217',
     
     education: [
         {
             school: "King's College London",
-            degree: "MSc Robotics (Pass with Distinction)",
-            location: "London, United Kingdom",
-            period: "September 2024 – September 2025",
-            modules: "Intelligence & Autonomy, Sensing & Perception, Advanced Machine Learning",
+            degree: 'MSc Robotics (Pass with Distinction)',
+            location: 'London, United Kingdom',
+            period: 'September 2024 – September 2025',
+            modules: 'Intelligence & Autonomy, Sensing & Perception, Advanced Machine Learning',
             awards: "President's Global Leadership Award (PGLA)"
         },
         {
-            school: "Shanghai University",
-            degree: "BE Electronic Information Engineering",
-            location: "Shanghai, China",
-            period: "September 2020 – June 2024",
-            modules: "Data Structure & Algorithm, Analog & Digital Circuits, Signals & Systems, Telecom Theory",
-            awards: "Outstanding Student Leader, Outstanding Student, Innovation & Entrepreneurship Scholarship"
+            school: 'Shanghai University',
+            degree: 'BE Electronic Information Engineering',
+            location: 'Shanghai, China',
+            period: 'September 2020 – June 2024',
+            modules: 'Data Structure & Algorithm, Analog & Digital Circuits, Signals & Systems, Telecom Theory',
+            awards: 'Outstanding Student Leader, Outstanding Student, Innovation & Entrepreneurship Scholarship'
         }
     ],
     
     experience: [
         {
-            title: "Artificial Intelligence Engineer",
-            company: "NetMind.AI",
-            location: "London, United Kingdom",
-            period: "November 2025 – January 2026",
-            type: "Internship",
+            title: 'Artificial Intelligence Engineer',
+            company: 'NetMind.AI',
+            location: 'London, United Kingdom',
+            period: 'November 2025 – January 2026',
+            type: 'Internship',
             highlights: [
-                "Architected multi-modal vLLM inference pipeline using VLM extraction with overlap chunking",
-                "Developed social media agentic AI with weekly human-in-the-loop approval workflow",
-                "Engineered Claude Code plugin deployed to server marketplace, attracting 4,000+ interactions"
+                'Architected multi-modal vLLM inference pipeline using VLM extraction with overlap chunking',
+                'Developed social media agentic AI with weekly human-in-the-loop approval workflow',
+                'Engineered Claude Code plugin deployed to server marketplace, attracting 4,000+ interactions'
             ],
-            skills: ["vLLM", "Claude Code", "MCP", "Agentic AI", "Multi-modal"]
+            skills: ['vLLM', 'Claude Code', 'MCP', 'Agentic AI', 'Multi-modal']
         },
         {
-            title: "Marketing (Tech Background)",
-            company: "NetMind.AI",
-            location: "London, United Kingdom",
-            period: "August 2025 – November 2025",
-            type: "Internship",
+            title: 'Marketing (Tech Background)',
+            company: 'NetMind.AI',
+            location: 'London, United Kingdom',
+            period: 'August 2025 – November 2025',
+            type: 'Internship',
             highlights: [
-                "Created 15+ product demo posts across LinkedIn (grew followers by 2000+), Reddit (3000+ upvotes)",
-                "Published guest articles in 8+ tech publications, increasing organic website traffic by 40%",
-                "Collaborated with AWS & LLM London for AI community panels"
+                'Created 15+ product demo posts across LinkedIn (grew followers by 2000+), Reddit (3000+ upvotes)',
+                'Published guest articles in 8+ tech publications, increasing organic website traffic by 40%',
+                'Collaborated with AWS & LLM London for AI community panels'
             ],
-            skills: ["SEO", "Content Strategy", "B2B Marketing", "Lead Generation"]
+            skills: ['SEO', 'Content Strategy', 'B2B Marketing', 'Lead Generation']
         },
         {
-            title: "Solutions Architecture Engineer",
-            company: "China Telecom Europe",
-            location: "London, United Kingdom",
-            period: "May 2025 – October 2025",
-            type: "Internship",
+            title: 'Solutions Architecture Engineer',
+            company: 'China Telecom Europe',
+            location: 'London, United Kingdom',
+            period: 'May 2025 – October 2025',
+            type: 'Internship',
             highlights: [
-                "Deployed cloud-native LLMs as chatbot agents on AWS and GCP scalable EC2 instances",
-                "Architected enterprise-grade RAG knowledge platform with LangChain",
-                "Implemented Terraform IaC practices to facilitate €30,000 contract closure"
+                'Deployed cloud-native LLMs as chatbot agents on AWS and GCP scalable EC2 instances',
+                'Architected enterprise-grade RAG knowledge platform with LangChain',
+                'Implemented Terraform IaC practices to facilitate €30,000 contract closure'
             ],
-            skills: ["AWS", "GCP", "Docker", "Kubernetes", "RAG", "LangChain", "Terraform"]
+            skills: ['AWS', 'GCP', 'Docker', 'Kubernetes', 'RAG', 'LangChain', 'Terraform']
         },
         {
-            title: "Data Analyst",
-            company: "Shanghai Himalaya Technology",
-            location: "Shanghai, China",
-            period: "September 2023 – December 2023",
-            type: "Internship",
+            title: 'Data Analyst',
+            company: 'Shanghai Himalaya Technology',
+            location: 'Shanghai, China',
+            period: 'September 2023 – December 2023',
+            type: 'Internship',
             highlights: [
-                "Implemented data extraction pipelines to parse HTML files",
-                "Developed competitor intelligence dashboards using SQL queries",
-                "Created comprehensive BI dashboards with Databricks & Tableau"
+                'Implemented data extraction pipelines to parse HTML files',
+                'Developed competitor intelligence dashboards using SQL queries',
+                'Created comprehensive BI dashboards with Databricks & Tableau'
             ],
-            skills: ["SQL", "Databricks", "Tableau", "Web Scraping", "Data Analysis"]
+            skills: ['SQL', 'Databricks', 'Tableau', 'Web Scraping', 'Data Analysis']
         }
     ],
     
-    skills: ["Python", "LangChain", "RAG", "Claude Code", "Docker", "Kubernetes", "AWS", "GCP", "Terraform", "GitHub Actions", "SQL", "Tableau", "Prompt Engineering", "vLLM", "MCP", "Agentic AI"]
+    skills: ['Python', 'LangChain', 'RAG', 'Claude Code', 'Docker', 'Kubernetes', 'AWS', 'GCP', 'Terraform', 'GitHub Actions', 'SQL', 'Tableau', 'Prompt Engineering', 'vLLM', 'MCP', 'Agentic AI']
 };
 
 // Toggle chatbot window
