@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Theme Toggle
-const themeToggle = document.getElementById('themeToggle');
+const themeToggle = document.getElementById('theme-toggle');
 const html = document.documentElement;
 
 // Check for saved theme preference or default to dark
@@ -66,8 +66,8 @@ if (themeToggle) {
 }
 
 // Mobile Menu Toggle
-const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-const navLinks = document.getElementById('navLinks');
+const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+const navLinks = document.getElementById('nav-links');
 
 if (mobileMenuToggle && navLinks) {
     mobileMenuToggle.addEventListener('click', () => {
@@ -175,12 +175,12 @@ console.log('%c📧 houyc1217@gmail.com', 'font-size: 12px; color: #7cc4f5;');
 
 
 // ==================== Chatbot Widget ====================
-const chatbotWidget = document.getElementById('chatbotWidget');
-const chatbotToggle = document.getElementById('chatbotToggle');
-const chatbotWindow = document.getElementById('chatbotWindow');
-const chatbotMessages = document.getElementById('chatbotMessages');
-const chatbotInput = document.getElementById('chatbotInput');
-const chatbotSend = document.getElementById('chatbotSend');
+const chatbotWidget = document.getElementById('chatbot-widget');
+const chatbotToggle = document.getElementById('chatbot-toggle');
+const chatbotWindow = document.getElementById('chatbot-window');
+const chatbotMessages = document.getElementById('chatbot-messages');
+const chatbotInput = document.getElementById('chatbot-input');
+const chatbotSend = document.getElementById('chatbot-send');
 
 // Knowledge base from the webpage content
 const knowledgeBase = {
@@ -405,7 +405,7 @@ function generateResponse(query) {
     }
     
     // Default response
-    return `I'm not sure I understand that question. You can try asking about:<br><br>• His <strong>education</strong> background<br>• <strong>Work experience</strong> and roles<br>• Technical <strong>skills</strong><br><br>Or feel free to <a href="#contact" onclick="document.getElementById('chatbotWidget').classList.remove('open')">contact Yincheng directly</a> for more specific inquiries.`;
+    return `I'm not sure I understand that question. You can try asking about:<br><br>• His <strong>education</strong> background<br>• <strong>Work experience</strong> and roles<br>• Technical <strong>skills</strong><br><br>Or feel free to <a href="#contact" onclick="document.getElementById('chatbot-widget').classList.remove('open')">contact Yincheng directly</a> for more specific inquiries.`;
 }
 
 // Event listeners for sending messages
