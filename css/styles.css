@@ -431,32 +431,70 @@ section {
     color: var(--text-secondary);
 }
 
-/* Skill Tags */
-.skill-tags {
+/* Skills Marquee */
+.skills-marquee {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    overflow: hidden;
+    padding: var(--spacing-lg) 0;
+    margin-top: var(--spacing-xl);
+    background: rgba(var(--bg-secondary-rgb, 18, 18, 18), 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.marquee-content {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--spacing-xs);
-    margin-top: var(--spacing-lg);
+    gap: var(--spacing-lg);
+    width: max-content;
+    animation: scroll 40s linear infinite;
 }
 
-.skill-tag {
-    display: inline-block;
-    padding: var(--spacing-xs) var(--spacing-md);
-    background: var(--tag-bg);
-    color: var(--tag-text);
-    border: 1px solid var(--tag-border);
-    border-radius: var(--radius-full);
-    font-size: 0.875rem;
-    font-weight: 500;
+.marquee-content:hover {
+    animation-play-state: paused;
+}
+
+.marquee-content .skill-tag {
+    flex-shrink: 0;
+    padding: var(--spacing-sm) var(--spacing-xl);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
     transition: all var(--transition-base);
+    white-space: nowrap;
+    cursor: default;
 }
 
-.skill-tag:hover {
-    background: var(--accent-primary);
-    color: #ffffff;
+.marquee-content .skill-tag:hover {
+    transform: translateY(-5px) scale(1.05);
     border-color: var(--accent-primary);
-    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    color: var(--accent-primary);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-50% - (var(--spacing-lg) / 2)));
+    }
+}
+
+/* Ensure RGB variables for backdrop */
+:root {
+    --bg-secondary-rgb: 18, 18, 18;
+}
+
+[data-theme="light"] {
+    --bg-secondary-rgb: 245, 245, 245;
 }
 
 /* Education Timeline */
