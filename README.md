@@ -2,10 +2,6 @@
 
 This is my personal portfolio website, designed to be a clean and professional representation of my work as an AI Engineer and Solutions Architect. I built it using a minimalist stack of HTML, CSS, and JavaScript.
 
-## License
-
-MIT
-
 ## Version Management
 
 I use this section to track the evolution of this project and archive significant milestones.
