@@ -454,15 +454,14 @@ section {
 }
 
 /* Skills Marquee */
-/* Skills Marquee */
 .skills-marquee {
     position: relative;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     overflow: visible;
     /* Allow tooltips to pop out */
-    padding: var(--spacing-3xl) 0 var(--spacing-lg) 0;
-    /* More top room for tooltip */
+    padding: var(--spacing-2xl) 0;
+    /* Balanced vertical padding */
     margin-top: var(--spacing-xl);
     background: rgba(var(--bg-secondary-rgb, 18, 18, 18), 0.5);
     backdrop-filter: blur(8px);
