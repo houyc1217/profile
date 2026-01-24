@@ -460,8 +460,8 @@ section {
     margin-left: calc(-50vw + 50%);
     overflow: visible;
     /* Allow tooltips to pop out */
-    padding: var(--spacing-2xl) 0;
-    /* Balanced vertical padding */
+    padding: 64px 0;
+    /* Forced absolute vertical symmetry */
     margin-top: var(--spacing-xl);
     background: rgba(var(--bg-secondary-rgb, 18, 18, 18), 0.5);
     backdrop-filter: blur(8px);
