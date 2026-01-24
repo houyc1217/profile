@@ -480,6 +480,7 @@ section {
 }
 
 .marquee-content .skill-tag {
+    position: relative;
     flex-shrink: 0;
     padding: var(--spacing-sm) var(--spacing-xl);
     font-size: 1.1rem;
@@ -491,7 +492,7 @@ section {
     box-shadow: var(--shadow-sm);
     transition: all var(--transition-base);
     white-space: nowrap;
-    cursor: default;
+    cursor: help;
 }
 
 .marquee-content .skill-tag:hover {
@@ -500,6 +501,43 @@ section {
     color: #000000;
     border-color: var(--accent-primary);
     box-shadow: 0 10px 20px rgba(124, 196, 245, 0.3);
+    z-index: 10;
+}
+
+/* Tooltip Styling */
+.marquee-content .skill-tag::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 15px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(0, 0, 0, 0.9);
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    white-space: normal;
+    width: 200px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-base);
+    pointer-events: none;
+    box-shadow: var(--shadow-lg);
+    z-index: 100;
+}
+
+[data-theme="light"] .marquee-content .skill-tag::after {
+    background: rgba(255, 255, 255, 0.95);
+    color: #000000;
+    border: 1px solid var(--border-color);
+}
+
+.marquee-content .skill-tag:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
 }
 
 @keyframes scroll {
