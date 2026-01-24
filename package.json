@@ -4,6 +4,11 @@
   "description": "Personal web profile",
   "main": "js/main.js",
   "scripts": {
+    "test": "jest",
+    "lint:html": "htmlhint *.html",
+    "lint:css": "stylelint css/*.css",
+    "lint:js": "eslint js/*.js",
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
     "build": "mkdir -p build && cp -r index.html css js assets build/"
   },
   "keywords": [
@@ -12,5 +17,11 @@
     "personal-website"
   ],
   "author": "Yincheng Hou",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.42.0",
+    "htmlhint": "^1.1.4",
+    "jest": "^29.5.0",
+    "stylelint": "^15.7.0"
+  }
 }
