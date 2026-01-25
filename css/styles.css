@@ -538,10 +538,15 @@ section {
 }
 
 /* Tooltip Styling */
-.marquee-content .skill-tag i {
+.marquee-content .skill-tag i,
+.marquee-content .skill-tag svg {
     margin-right: 8px;
     font-size: 1.1em;
     vertical-align: middle;
+    width: 1.1em;
+    height: 1.1em;
+    fill: currentColor;
+    display: inline-block;
 }
 
 .marquee-content .skill-tag::after {
