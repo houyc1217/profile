@@ -538,6 +538,12 @@ section {
 }
 
 /* Tooltip Styling */
+.marquee-content .skill-tag i {
+    margin-right: 8px;
+    font-size: 1.1em;
+    vertical-align: middle;
+}
+
 .marquee-content .skill-tag::after {
     content: attr(data-tip);
     position: absolute;
