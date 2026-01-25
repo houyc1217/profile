@@ -1222,9 +1222,12 @@ footer {
         top: 100%;
         left: 0;
         right: 0;
-        background: var(--bg-nav);
+        background: var(--bg-primary);
+        /* Use solid background for better contrast on mobile */
         padding: var(--spacing-lg);
         border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-lg);
+        z-index: 1001;
     }
 }
 
@@ -1274,6 +1277,16 @@ footer {
         width: 100%;
         max-width: 280px;
         justify-content: center;
+    }
+
+    #hero {
+        padding-top: var(--spacing-3xl);
+        min-height: auto;
+    }
+
+    .view-counter {
+        font-size: 0.8rem;
+        padding: 6px 16px;
     }
 }
 
@@ -1712,10 +1725,11 @@ footer {
     }
 
     .chatbot-window {
-        width: calc(100vw - 32px);
+        width: calc(100vw - 20px);
         height: calc(100vh - 100px);
-        bottom: 65px;
-        right: -8px;
+        bottom: 70px;
+        right: -10px;
+        border-radius: var(--radius-md);
     }
 
     .chatbot-toggle {
