@@ -893,6 +893,38 @@ section {
     line-height: 1.6;
 }
 
+.project-links {
+    margin-top: var(--spacing-md);
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.project-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all var(--transition-base);
+}
+
+.project-btn:hover {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    border-color: var(--text-primary);
+}
+
+.project-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
 .projects-placeholder {
     text-align: center;
     padding: var(--spacing-3xl);
