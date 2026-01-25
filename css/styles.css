@@ -3,7 +3,9 @@
 :root {
     /* Dark Theme (Default) */
     --bg-primary: #000000;
+    --bg-primary-rgb: 0, 0, 0;
     --bg-secondary: #121212;
+    --bg-secondary-rgb: 18, 18, 18;
     --bg-card: #ffffff;
     --bg-card-hover: #f5f5f5;
     --bg-nav: rgba(0, 0, 0, 0.9);
@@ -63,7 +65,9 @@
 /* Light Theme */
 [data-theme="light"] {
     --bg-primary: #ffffff;
+    --bg-primary-rgb: 255, 255, 255;
     --bg-secondary: #f5f5f5;
+    --bg-secondary-rgb: 245, 245, 245;
     --bg-card: #ffffff;
     --bg-card-hover: #fafafa;
     --bg-nav: rgba(255, 255, 255, 0.95);
@@ -475,12 +479,18 @@ section {
     padding: 64px 0;
     /* Forced absolute vertical symmetry */
     margin-top: var(--spacing-xl);
-    background: rgba(var(--bg-secondary-rgb, 18, 18, 18), 0.5);
+    background: rgba(var(--bg-secondary-rgb), 0.5);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
     z-index: 5;
+    /* Force GPU rendering for Safari compatibility */
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
 }
 
 /* Edge Fade Overlays (Replacement for mask-image which clips tooltips) */
@@ -497,12 +507,12 @@ section {
 
 .skills-marquee::before {
     left: 0;
-    background: linear-gradient(to right, var(--bg-primary), transparent);
+    background: linear-gradient(to right, rgb(var(--bg-primary-rgb)), transparent);
 }
 
 .skills-marquee::after {
     right: 0;
-    background: linear-gradient(to left, var(--bg-primary), transparent);
+    background: linear-gradient(to left, rgb(var(--bg-primary-rgb)), transparent);
 }
 
 .marquee-content {
@@ -512,6 +522,9 @@ section {
     animation: scroll 40s linear infinite;
     position: relative;
     z-index: 1;
+    /* Hardware acceleration for child elements */
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
 }
 
 .marquee-content:hover {
@@ -598,11 +611,11 @@ section {
 
 @keyframes scroll {
     0% {
-        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
     }
 
     100% {
-        transform: translateX(calc(-50% - (var(--spacing-lg) / 2)));
+        transform: translate3d(calc(-50% - (var(--spacing-lg) / 2)), 0, 0);
     }
 }
 
