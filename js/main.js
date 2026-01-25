@@ -12,9 +12,9 @@ let typingSpeed = 100;
 
 function typeWriter() {
     if (!typewriterElement) return;
-    
+
     const currentPhrase = phrases[phraseIndex];
-    
+
     if (isDeleting) {
         // Deleting characters
         typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
@@ -26,7 +26,7 @@ function typeWriter() {
         charIndex++;
         typingSpeed = 100;
     }
-    
+
     // If word is complete
     if (!isDeleting && charIndex === currentPhrase.length) {
         // Pause at end of phrase
@@ -38,14 +38,43 @@ function typeWriter() {
         phraseIndex = (phraseIndex + 1) % phrases.length;
         typingSpeed = 500;
     }
-    
+
     setTimeout(typeWriter, typingSpeed);
 }
 
-// Start typewriter effect when DOM is loaded
+// Initialize site components
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(typeWriter, 500);
+    initViewCounter();
 });
+
+// Site View Counter Logic
+async function initViewCounter() {
+    const viewCountElement = document.getElementById('view-count');
+    const viewCounterContainer = document.querySelector('.view-counter');
+
+    if (!viewCountElement || !viewCounterContainer) return;
+
+    try {
+        // Use counterapi.dev - simple and anonymous
+        // Namespace: yinchenghou.com, Key: visits
+        const response = await fetch('https://api.counterapi.dev/v1/yinchenghou.com/visits/up');
+        const data = await response.json();
+
+        if (data && data.count) {
+            // Format number with commas for a premium feel
+            viewCountElement.textContent = new Intl.NumberFormat().format(data.count);
+            // Show the counter with animation
+            setTimeout(() => {
+                viewCounterContainer.classList.add('visible');
+            }, 500);
+        }
+    } catch (error) {
+        console.error('Error fetching view count:', error);
+        // Hide container if API fails to keep UI clean
+        viewCounterContainer.style.display = 'none';
+    }
+}
 
 // Theme Toggle
 const themeToggle = document.getElementById('theme-toggle');
@@ -59,7 +88,7 @@ if (themeToggle) {
     themeToggle.addEventListener('click', () => {
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
+
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
     });
@@ -90,12 +119,12 @@ const navLinksAll = document.querySelectorAll('.nav-link');
 
 function highlightNavOnScroll() {
     const scrollY = window.pageYOffset;
-    
+
     sections.forEach(section => {
         const sectionHeight = section.offsetHeight;
         const sectionTop = section.offsetTop - 100;
         const sectionId = section.getAttribute('id');
-        
+
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
             navLinksAll.forEach(link => {
                 link.classList.remove('active');
@@ -111,7 +140,7 @@ window.addEventListener('scroll', highlightNavOnScroll);
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -189,7 +218,7 @@ const knowledgeBase = {
     email: 'houyc1217@gmail.com',
     linkedin: 'https://www.linkedin.com/in/yincheng-hou',
     github: 'https://github.com/houyc1217',
-    
+
     education: [
         {
             school: "King's College London",
@@ -208,7 +237,7 @@ const knowledgeBase = {
             awards: 'Outstanding Student Leader, Outstanding Student, Innovation & Entrepreneurship Scholarship'
         }
     ],
-    
+
     experience: [
         {
             title: 'Artificial Intelligence Engineer',
@@ -263,7 +292,7 @@ const knowledgeBase = {
             skills: ['SQL', 'Databricks', 'Tableau', 'Web Scraping', 'Data Analysis']
         }
     ],
-    
+
     skills: ['Python', 'LangChain', 'RAG', 'Claude Code', 'Docker', 'Kubernetes', 'AWS', 'GCP', 'Terraform', 'GitHub Actions', 'SQL', 'Tableau', 'Prompt Engineering', 'vLLM', 'MCP', 'Agentic AI']
 };
 
@@ -281,14 +310,14 @@ if (chatbotToggle) {
 function sendMessage() {
     const message = chatbotInput.value.trim();
     if (!message) return;
-    
+
     // Add user message
     addMessage(message, 'user');
     chatbotInput.value = '';
-    
+
     // Show typing indicator
     showTypingIndicator();
-    
+
     // Generate response after a short delay
     setTimeout(() => {
         hideTypingIndicator();
@@ -326,22 +355,22 @@ function hideTypingIndicator() {
 // Generate response based on user input (Simple RAG)
 function generateResponse(query) {
     const q = query.toLowerCase();
-    
+
     // Greetings
     if (q.match(/^(hi|hello|hey|greetings)/)) {
         return `Hello! I'm here to help you learn about Yincheng. You can ask me about his education, work experience, skills, or how to contact him.`;
     }
-    
+
     // Name
     if (q.includes('name') || q.includes('who is') || q.includes('who are')) {
         return `His name is <strong>Yincheng Hou</strong>. He's an AI Engineer & Solutions Architect with expertise in LLM, RAG, and Cloud Architecture.`;
     }
-    
+
     // Contact
     if (q.includes('contact') || q.includes('email') || q.includes('reach') || q.includes('get in touch')) {
         return `You can reach Yincheng via:<br><br><strong>Email:</strong> <a href="mailto:${knowledgeBase.email}">${knowledgeBase.email}</a><br><strong>LinkedIn:</strong> <a href="${knowledgeBase.linkedin}" target="_blank">linkedin.com/in/yincheng-hou</a><br><strong>GitHub:</strong> <a href="${knowledgeBase.github}" target="_blank">github.com/houyc1217</a>`;
     }
-    
+
     // Education
     if (q.includes('education') || q.includes('study') || q.includes('university') || q.includes('degree') || q.includes('school') || q.includes('college') || q.includes('master') || q.includes('bachelor')) {
         let response = `Yincheng's education background:<br><br>`;
@@ -350,13 +379,13 @@ function generateResponse(query) {
         });
         return response;
     }
-    
+
     // King's College London specific
     if (q.includes('king') || q.includes('kcl') || q.includes('london')) {
         const kcl = knowledgeBase.education[0];
         return `Yincheng completed his <strong>${kcl.degree}</strong> at ${kcl.school} (${kcl.period}). He studied ${kcl.modules} and received the ${kcl.awards}.`;
     }
-    
+
     // Experience / Work
     if (q.includes('experience') || q.includes('work') || q.includes('job') || q.includes('career') || q.includes('intern')) {
         let response = `Yincheng has ${knowledgeBase.experience.length} professional experiences:<br><br>`;
@@ -365,45 +394,45 @@ function generateResponse(query) {
         });
         return response + `Ask me about a specific role for more details!`;
     }
-    
+
     // NetMind.AI
     if (q.includes('netmind')) {
         const aiRole = knowledgeBase.experience[0];
         const marketingRole = knowledgeBase.experience[1];
         return `Yincheng worked at NetMind.AI in two roles:<br><br><strong>1. ${aiRole.title}</strong> (${aiRole.period})<br>• ${aiRole.highlights[0]}<br>• ${aiRole.highlights[2]}<br><br><strong>2. ${marketingRole.title}</strong> (${marketingRole.period})<br>• ${marketingRole.highlights[0]}`;
     }
-    
+
     // China Telecom
     if (q.includes('china telecom') || q.includes('telecom')) {
         const exp = knowledgeBase.experience[2];
         return `At <strong>${exp.company}</strong> (${exp.period}), Yincheng worked as ${exp.title}:<br>• ${exp.highlights.join('<br>• ')}<br><br>Skills: ${exp.skills.join(', ')}`;
     }
-    
+
     // Skills
     if (q.includes('skill') || q.includes('tech') || q.includes('stack') || q.includes('know') || q.includes('can do') || q.includes('expertise')) {
         return `Yincheng's technical skills include:<br><br><strong>AI/ML:</strong> LangChain, RAG, vLLM, Claude Code, MCP, Agentic AI, Prompt Engineering<br><br><strong>Cloud & DevOps:</strong> AWS, GCP, Docker, Kubernetes, Terraform, GitHub Actions<br><br><strong>Data:</strong> Python, SQL, Tableau, Databricks`;
     }
-    
+
     // RAG / LLM specific
     if (q.includes('rag') || q.includes('llm') || q.includes('langchain') || q.includes('ai')) {
         return `Yincheng specializes in AI engineering, particularly:<br>• <strong>RAG (Retrieval-Augmented Generation)</strong> - Built enterprise-grade RAG platforms<br>• <strong>LLM deployment</strong> - Deployed cloud-native LLMs on AWS/GCP<br>• <strong>Agentic AI</strong> - Developed social media AI agents with MCP tools<br>• <strong>vLLM</strong> - Architected multi-modal inference pipelines`;
     }
-    
+
     // Cloud
     if (q.includes('cloud') || q.includes('aws') || q.includes('gcp') || q.includes('docker') || q.includes('kubernetes')) {
         return `Yincheng has extensive cloud experience:<br>• Deployed LLMs on <strong>AWS</strong> and <strong>GCP</strong> EC2 instances<br>• Containerized services with <strong>Docker</strong><br>• Orchestrated with <strong>Kubernetes</strong><br>• Implemented <strong>Terraform</strong> IaC practices`;
     }
-    
+
     // Location
     if (q.includes('where') || q.includes('location') || q.includes('based') || q.includes('live')) {
         return `Yincheng is currently based in <strong>London, United Kingdom</strong>, where he completed his MSc at King's College London and has been working in AI engineering roles.`;
     }
-    
+
     // Thanks
     if (q.includes('thank') || q.includes('thanks')) {
         return `You're welcome! Feel free to ask if you have any other questions about Yincheng.`;
     }
-    
+
     // Default response
     return `I'm not sure I understand that question. You can try asking about:<br><br>• His <strong>education</strong> background<br>• <strong>Work experience</strong> and roles<br>• Technical <strong>skills</strong><br><br>Or feel free to <a href="#contact" onclick="document.getElementById('chatbot-widget').classList.remove('open')">contact Yincheng directly</a> for more specific inquiries.`;
 }
