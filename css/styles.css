@@ -110,6 +110,7 @@ body {
     overflow-x: hidden;
     width: 100%;
     position: relative;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* Container */
@@ -477,8 +478,8 @@ section {
 .skills-marquee {
     position: relative;
     width: 100%;
-    overflow: hidden;
-    /* Contain tooltips/elements to prevent horizontal scroll */
+    overflow: visible;
+    /* Allow tooltips to pop out */
     padding: 80px 0;
     /* Increase padding to accommodate tooltips */
     margin-top: var(--spacing-xl);
@@ -597,7 +598,7 @@ section {
     transition: all var(--transition-base);
     pointer-events: none;
     box-shadow: var(--shadow-lg);
-    z-index: 1000;
+    z-index: 9999;
 }
 
 [data-theme="light"] .marquee-content .skill-tag::after {
