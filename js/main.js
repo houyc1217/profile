@@ -193,7 +193,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe elements for animation
-document.querySelectorAll('.timeline-card, .experience-card, .project-card').forEach(el => {
+document.querySelectorAll('.timeline-card, .project-card').forEach(el => {
     observer.observe(el);
 });
 
@@ -238,60 +238,6 @@ const knowledgeBase = {
         }
     ],
 
-    experience: [
-        {
-            title: 'Artificial Intelligence Engineer',
-            company: 'NetMind.AI',
-            location: 'London, United Kingdom',
-            period: 'November 2025 – January 2026',
-            type: 'Internship',
-            highlights: [
-                'Architected multi-modal vLLM inference pipeline using VLM extraction with overlap chunking',
-                'Developed social media agentic AI with weekly human-in-the-loop approval workflow',
-                'Engineered Claude Code plugin deployed to server marketplace, attracting 4,000+ interactions'
-            ],
-            skills: ['vLLM', 'Claude Code', 'MCP', 'Agentic AI', 'Multi-modal']
-        },
-        {
-            title: 'Marketing (Tech Background)',
-            company: 'NetMind.AI',
-            location: 'London, United Kingdom',
-            period: 'August 2025 – November 2025',
-            type: 'Internship',
-            highlights: [
-                'Created 15+ product demo posts across LinkedIn (grew followers by 2000+), Reddit (3000+ upvotes)',
-                'Published guest articles in 8+ tech publications, increasing organic website traffic by 40%',
-                'Collaborated with AWS & LLM London for AI community panels'
-            ],
-            skills: ['SEO', 'Content Strategy', 'B2B Marketing', 'Lead Generation']
-        },
-        {
-            title: 'Solutions Architecture Engineer',
-            company: 'China Telecom Europe',
-            location: 'London, United Kingdom',
-            period: 'May 2025 – October 2025',
-            type: 'Internship',
-            highlights: [
-                'Deployed cloud-native LLMs as chatbot agents on AWS and GCP scalable EC2 instances',
-                'Architected enterprise-grade RAG knowledge platform with LangChain',
-                'Implemented Terraform IaC practices to facilitate €30,000 contract closure'
-            ],
-            skills: ['AWS', 'GCP', 'Docker', 'Kubernetes', 'RAG', 'LangChain', 'Terraform']
-        },
-        {
-            title: 'Data Analyst',
-            company: 'Shanghai Himalaya Technology',
-            location: 'Shanghai, China',
-            period: 'September 2023 – December 2023',
-            type: 'Internship',
-            highlights: [
-                'Implemented data extraction pipelines to parse HTML files',
-                'Developed competitor intelligence dashboards using SQL queries',
-                'Created comprehensive BI dashboards with Databricks & Tableau'
-            ],
-            skills: ['SQL', 'Databricks', 'Tableau', 'Web Scraping', 'Data Analysis']
-        }
-    ],
 
     skills: ['Python', 'LangChain', 'RAG', 'Claude Code', 'Docker', 'Kubernetes', 'AWS', 'GCP', 'Terraform', 'GitHub Actions', 'SQL', 'Tableau', 'Prompt Engineering', 'vLLM', 'MCP', 'Agentic AI']
 };
@@ -358,7 +304,7 @@ function generateResponse(query) {
 
     // Greetings
     if (q.match(/^(hi|hello|hey|greetings)/)) {
-        return `Hello! I'm here to help you learn about Yincheng. You can ask me about his education, work experience, skills, or how to contact him.`;
+        return `Hello! I'm here to help you learn about Yincheng. You can ask me about his education, skills, or how to contact him.`;
     }
 
     // Name
@@ -386,27 +332,6 @@ function generateResponse(query) {
         return `Yincheng completed his <strong>${kcl.degree}</strong> at ${kcl.school} (${kcl.period}). He studied ${kcl.modules} and received the ${kcl.awards}.`;
     }
 
-    // Experience / Work
-    if (q.includes('experience') || q.includes('work') || q.includes('job') || q.includes('career') || q.includes('intern')) {
-        let response = `Yincheng has ${knowledgeBase.experience.length} professional experiences:<br><br>`;
-        knowledgeBase.experience.forEach(exp => {
-            response += `<strong>${exp.title}</strong> at ${exp.company}<br>${exp.period} | ${exp.location}<br><br>`;
-        });
-        return response + `Ask me about a specific role for more details!`;
-    }
-
-    // NetMind.AI
-    if (q.includes('netmind')) {
-        const aiRole = knowledgeBase.experience[0];
-        const marketingRole = knowledgeBase.experience[1];
-        return `Yincheng worked at NetMind.AI in two roles:<br><br><strong>1. ${aiRole.title}</strong> (${aiRole.period})<br>• ${aiRole.highlights[0]}<br>• ${aiRole.highlights[2]}<br><br><strong>2. ${marketingRole.title}</strong> (${marketingRole.period})<br>• ${marketingRole.highlights[0]}`;
-    }
-
-    // China Telecom
-    if (q.includes('china telecom') || q.includes('telecom')) {
-        const exp = knowledgeBase.experience[2];
-        return `At <strong>${exp.company}</strong> (${exp.period}), Yincheng worked as ${exp.title}:<br>• ${exp.highlights.join('<br>• ')}<br><br>Skills: ${exp.skills.join(', ')}`;
-    }
 
     // Skills
     if (q.includes('skill') || q.includes('tech') || q.includes('stack') || q.includes('know') || q.includes('can do') || q.includes('expertise')) {
@@ -434,7 +359,7 @@ function generateResponse(query) {
     }
 
     // Default response
-    return `I'm not sure I understand that question. You can try asking about:<br><br>• His <strong>education</strong> background<br>• <strong>Work experience</strong> and roles<br>• Technical <strong>skills</strong><br><br>Or feel free to <a href="#contact" onclick="document.getElementById('chatbot-widget').classList.remove('open')">contact Yincheng directly</a> for more specific inquiries.`;
+    return `I'm not sure I understand that question. You can try asking about:<br><br>• His <strong>education</strong> background<br>• Technical <strong>skills</strong><br><br>Or feel free to <a href="#contact" onclick="document.getElementById('chatbot-widget').classList.remove('open')">contact Yincheng directly</a> for more specific inquiries.`;
 }
 
 // Event listeners for sending messages
