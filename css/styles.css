@@ -474,6 +474,46 @@ section {
     color: var(--text-secondary);
 }
 
+/* Philosophy Statement - Minimalist Style */
+.philosophy-container {
+    max-width: 900px;
+    margin: var(--spacing-xl) auto;
+    padding: 0 var(--spacing-lg);
+    text-align: center;
+}
+
+.philosophy-statement {
+    position: relative;
+    padding: var(--spacing-xl) 0;
+}
+
+.philosophy-text {
+    font-size: clamp(1.25rem, 4vw, 2.25rem);
+    font-weight: 300;
+    /* Light weight for elegance */
+    line-height: 1.4;
+    color: var(--text-primary);
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.03em;
+    opacity: 0.95;
+    position: relative;
+}
+
+/* Parallel structure highlighting (optional, subtle) */
+.philosophy-text b {
+    color: var(--accent-primary);
+    font-weight: 600;
+}
+
+.philosophy-accent {
+    width: 60px;
+    height: 4px;
+    background: var(--accent-primary);
+    margin: var(--spacing-lg) auto 0;
+    border-radius: var(--radius-full);
+}
+
 /* Skills Marquee */
 .skills-marquee {
     position: relative;
