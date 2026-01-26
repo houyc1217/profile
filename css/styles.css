@@ -484,15 +484,17 @@ section {
 
 .philosophy-statement {
     position: relative;
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-lg) 0;
+    display: inline-block;
+    text-align: left;
+    /* Align text left within the statement block */
 }
 
 .quote-icon-bg {
     position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 5rem;
+    top: -1.5rem;
+    left: -2rem;
+    font-size: 4rem;
     color: var(--text-secondary);
     opacity: 0.1;
     z-index: 0;
