@@ -197,6 +197,29 @@ document.querySelectorAll('.timeline-card, .project-card').forEach(el => {
     observer.observe(el);
 });
 
+// Video Autoplay Logic using Intersection Observer
+const videoObserverOptions = {
+    threshold: 0.5 // Trigger when 50% of the video is visible
+};
+
+const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+            video.play().catch(error => {
+                // Autoplay might be blocked by browser policy if not muted
+                console.log('Autoplay prevented:', error);
+            });
+        } else {
+            video.pause();
+        }
+    });
+}, videoObserverOptions);
+
+document.querySelectorAll('.project-video').forEach(video => {
+    videoObserver.observe(video);
+});
+
 // Console Easter Egg
 console.log('%c👋 Hey there, curious developer!', 'font-size: 20px; font-weight: bold;');
 console.log('%cThanks for checking out my portfolio. Feel free to reach out!', 'font-size: 14px;');
