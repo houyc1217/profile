@@ -501,16 +501,18 @@ section {
 }
 
 .philosophy-text {
-    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
     /* Matches hero-subtitle size */
     font-weight: 300;
-    line-height: 1.4;
+    line-height: 1.5;
     color: var(--text-secondary);
     margin: 0;
     font-family: 'Plus Jakarta Sans', sans-serif;
     letter-spacing: -0.01em;
     position: relative;
     z-index: 1;
+    word-break: break-word;
+    /* Prevents overflow on ultra-small screens */
 }
 
 /* Parallel structure highlighting (optional, subtle) */
@@ -1201,8 +1203,26 @@ footer {
         align-items: flex-start;
     }
 
+    /* Mobile Refinements */
+    .philosophy-container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .philosophy-statement {
+        text-align: center;
+        padding: var(--spacing-lg) 0;
+    }
+
+    .quote-icon-bg {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -1rem;
+        font-size: 3rem;
+    }
+
     .projects-grid {
         grid-template-columns: 1fr;
+        max-width: 400px;
     }
 
     .hero-cta {
@@ -1234,6 +1254,10 @@ footer {
 
     h2 {
         font-size: 1.75rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 10vw, 3rem);
     }
 
     .timeline-logo {
@@ -1339,6 +1363,7 @@ footer {
             var(--accent-primary) 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: textGradientWave 3s linear infinite;
 }
@@ -1350,6 +1375,7 @@ footer {
             var(--accent-primary) 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: textGradientWave 3s linear infinite;
     font-weight: 600;
