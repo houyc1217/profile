@@ -487,17 +487,29 @@ section {
     padding: var(--spacing-xl) 0;
 }
 
+.quote-icon-bg {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 5rem;
+    color: var(--text-secondary);
+    opacity: 0.1;
+    z-index: 0;
+}
+
 .philosophy-text {
     font-size: clamp(1.25rem, 4vw, 2.25rem);
     font-weight: 300;
     /* Light weight for elegance */
     line-height: 1.4;
-    color: var(--text-primary);
+    color: var(--text-secondary);
+    /* Changed to subtle color */
     margin: 0;
     font-family: 'Plus Jakarta Sans', sans-serif;
     letter-spacing: -0.03em;
-    opacity: 0.95;
     position: relative;
+    z-index: 1;
 }
 
 /* Parallel structure highlighting (optional, subtle) */
